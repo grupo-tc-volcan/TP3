@@ -1,0 +1,9 @@
+# Ignore files from Altium Projects
+History
+__Previews
+
+# Ignore files from LTSpice IV
+*.raw
+*.net
+*.log
+*.op
