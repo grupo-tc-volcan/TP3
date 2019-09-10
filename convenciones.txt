@@ -1,0 +1,19 @@
+-- INFORME EN LATEX --
+
+# Como se cargan TABLAS
+Se cargan las tablas usando el paquete csvsimple,
+para cargar automaticamente desde un .csv y se deja el estilo por defecto.
+
+# Como se cargan CIRCUITOS
+Se cargan circuitos como imagenes hechas con draw.io
+
+# Uso del PREAMBLE
+Cada branch agrega al preamble (originalmente vacio solamente con el documentclass) los paquetes que vaya usando
+con algun orden para luego hacer un merge adecuado.
+
+-- MANEJO DE GITHUB --
+
+# Uso de BRANCH
+Cada ejercicio tiene su branch, el master original tiene la carpeta de cada ejercicio
+y hay una carpeta para el informe donde se colocan las cosas para tal informe.
+El preamble se va expandiendo en cada branch y luego se hará un merge adecuado.
