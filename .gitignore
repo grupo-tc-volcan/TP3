@@ -7,3 +7,6 @@ __Previews
 *.net
 *.log
 *.op
+
+# Ignore files from LaTeX
+Informe.pdf
