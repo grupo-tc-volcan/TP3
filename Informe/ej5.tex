@@ -1,1 +1,75 @@
 \section{Ejercicio 5}
+
+\begin{align}
+    &Z_1 = \frac{R_2' \cdot \frac{1}{s \cdot C_1}}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z1} \\
+    &Z_2 = \frac{R_2'' \cdot \frac{1}{s \cdot C_1}}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z2} \\
+    &Z_2 = \frac{R_2'' \cdot R_2'}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z3} \\
+    &R_2 = R_2' + R_2'' \label{eq:ej5_r2}
+\end{align}
+
+\begin{align}
+    &Z_4 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_2 + R_1}  \label{eq:ej5_z4} \\
+    &Z_5 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_3 + \frac{1}{s \cdot C_2}}  \label{eq:ej5_z5} \\
+    &Z_6 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_1 + R_1}  \label{eq:ej5_z6}
+\end{align}
+
+\begin{align}
+    &Z_7 = \frac{R_3 \cdot Z_4}{R_3 + Z_4} \label{eq:ej5_z7} \\
+    &Z_8 = \frac{R_3 \cdot Z_6}{R_3 + Z_6} \label{eq:ej5_z8}
+\end{align}
+
+\begin{align}
+    &\frac{v_{out}}{v_{in}} = - \frac{Z_8}{Z_7}
+\end{align}
+
+\begin{ssmall}
+\begin{adjustwidth*}{-1.3cm}{}
+    \begin{align}
+        &\frac{v_{out}}{v_{in}} = - \frac{C_1 \cdot C_2 \cdot R_1 \cdot \left(R_1 \cdot R_2 - 2 \cdot R_2'^2 + 2 \cdot R_2 \cdot R_2' + R_2 \cdot R_3\right) \cdot s^2 +
+                                        \left(2 \cdot C_1 \cdot R_1 \cdot R_2 + C_2 \left(R_1^2 + R_1 \cdot \left(R_2 + R_3\right) - \left(R_2' + R_3\right) \cdot \left(R_2' - R_2\right)\right)\right) \cdot s +
+                                        2 \cdot R_1 + R_2}
+                                        {C_1 \cdot C_2 \cdot R_1 \cdot \left(R_1 \cdot R_2 - 2 \cdot R_2'^2 + 2 \cdot R_2 \cdot R_2' + R_2 \cdot R_3\right) \cdot s^2 +
+                                        \left(2 \cdot C_1 \cdot R_1 \cdot R_2 + C_2 \left(R_1^2 + R_1 \cdot \left(R_2 + R_3\right) - R_2' \cdot \left(R_2' - R_2 - R_3\right)\right)\right) \cdot s +
+                                        2 \cdot R_1 + R_2} \label{eq:ej5_complete_transference}
+    \end{align}
+\end{adjustwidth*}
+\end{ssmall}
+
+\begin{align}
+    &R_3 >> R_1 \\
+    &R_3 = 10 \cdot R_2 \\
+    &C_1 = 10 \cdot C_2
+\end{align}
+
+\begin{align}
+    &\frac{v_{out}}{v_{in}} = - \frac{\frac{20 \cdot C_2^2 \cdot R_1 \cdot \left(R_2 \cdot R_2' + 5 \cdot R_2^2 - R_2'^2\right)}{2 \cdot R_1 + R_2} \cdot s^2 +
+                                        \frac{C_2 \cdot \left(30 \cdot R_1 \cdot R_2 + \left(R_2 - R_2'\right) \cdot \left(R_2' + 10 \cdot R_2\right)\right)}{2 \cdot R_1 + R_2} \cdot s +
+                                        1}
+                                        {\frac{20 \cdot C_2^2 \cdot R_1 \cdot \left(R_2 \cdot R_2' + 5 \cdot R_2^2 - R_2'^2\right)}{2 \cdot R_1 + R_2} \cdot s^2 +
+                                        \frac{C_2 \cdot \left(31 \cdot R_1 \cdot R_2 + R_2' \cdot \left(11 \cdot R_2 - R_2'\right)\right)}{2 \cdot R_1 + R_2} \cdot s +
+                                        1} \label{eq:ej5_complete_transference}
+\end{align}
+
+\begin{align}
+    &f_0 = \frac{\sqrt{\frac{5 \cdot \left(2 \cdot R_1 + R_2\right)}{R_1 \cdot \left(5 \cdot R_2^2 + R_2 \cdot R_2' - R_2'^2\right)}}}{20 \pi \cdot C_2}
+\end{align}
+
+Tanto para $R_2' = 0$ como para $R_2' = R_2$:
+\begin{align}
+    &f_0 = \frac{\sqrt{2 + \frac{R_2}{R_1}}}{20 \pi \cdot R_2 \cdot C_2}
+\end{align}
+
+Para $s = j \cdot \omega_0$
+\begin{align}
+    &A_0 = - \frac{30 \cdot R_1 \cdot R_2 + \left(R_2 - R_2'\right) \cdot \left(10 \cdot R_2 + R_2'\right)}{31 \cdot R_1 \cdot R_2 + R_2' \cdot \left(11 \cdot R_2 - R_2'\right)}
+\end{align}
+
+Para $R_2' = 0$:
+\begin{align}
+    &A_0 = - frac{30 \cdot R_1 + 10 \cdot R_2}{31 \cdot R_1} \approx frac{3 \cdot R_1 + 1 \cdot R_2}{3 \cdot R_1}
+\end{align}
+
+Para $R_2' = R_2$:
+\begin{align}
+    &A_0 = - frac{30 \cdot R_1}{31 \cdot R_1 + 10 \cdot R_2} \approx frac{3 \cdot R_1}{3 \cdot R_1 + 1 \cdot R_2}
+\end{align}
