@@ -1,0 +1,60 @@
+\subsection{Funci\'on transferencia del circuito}
+Debido a la complejidad del circuito \ref{circ1}, se  calcul\'o $\frac{V_O}{V_I}$ considerando a los dos amplificadores operacionales como ideales. Esto implica que se haya considerado $A_{vol}$ infinito. Para este an\'alisis, mediante resoluci\'on por nodos, se parti\'o de las relaciones entre corrientes entranes y salientes a cada uno de los tres nodos indicados en el circuito con tensi\'on $V_1$:
+
+\begin{equation}
+	\begin{cases}
+		\frac{V_i - V_1}{(R_7 // \frac{1}{sC_6})} = \frac{V_1}{R_6} + \frac{V_1 - V_2}{R_1}\\ \\
+		\frac{V_2 - V_1}{\frac{1}{sC_2}} = \frac{V_1 - V_O}{R_3}\\ \\
+		\frac{V_O - V_1}{R_4} = \frac{V_1 - V_i}{R_8} + \frac{V_1}{R_5}
+	\end{cases}
+	\label{ecsbase}
+\end{equation}
+
+Operando algebraicamente, a partir de las ecuaciones \ref{ecsbase} se obtiene la funci\'on transferencia del circuito \ref{circ1}. Siendo $s = j\omega$, la misma se muestra a continuaci\'on:
+
+\begin{equation}
+ 	H(s) = \frac{V_O}{V_I} = \frac{R_5}{R_5 + R_8} \cdot 
+ 	\frac
+ 	{\frac{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}{R_4 R_5} \cdot s^2
+ 		+\frac{C_2 R_1 R_3 (R_4 R_6 R_8 + R_5 R_6 R_8 - R_4 R_5 R_7)}{R_4 R_5 R_6 R_7} \cdot s
+ 		+1}
+ 	{\frac{C_2 C_6 R_1 R_3 R_5 R_8}{R_4 (R_5 + R_8)} \cdot s^2
+ 		+\frac{C_2 R_1 R_3 R_5 R_8 (R_6 + R_7)}{R_4 R_6 R_7 (R_5 + R_8)} \cdot s
+ 		+1
+ 	}
+	\label{vovi}
+\end{equation}
+
+\todo{Justificaci\'on de que es un HP NOTCH}
+
+\subsubsection{Caracter\'sticas del circuito a partir de la funci\'on transferencia}
+
+Si bien observando la funci\'on transferencia se puede decir que se trata de un filtro de segundo orden, a continuaci\'on se analiza m\'as en detalle a qu\'e tipo de filtro corresponde.
+
+\paragraph*{Polos y ceros:}
+A partir del t\'ermino de mayor grado del numerador y del denominador del cociente de polinomios de la expresi\'on de $H(s)$ (Ecuaci\'on \ref{vovi}) se puede obtener la expresi\'on de los polos y ceros del circuito, ya que simb\'olicamente dichos t\'erminos son $\left(\frac{s}{\omega_Z}\right)^2$ y $\left(\frac{s}{\omega_P}\right)^2$respectivamente. Por lo tanto,
+
+\begin{equation}
+	\omega_Z = \sqrt{\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
+	\label{ec_z}
+\end{equation}
+
+\begin{equation}
+	\omega_P = \sqrt{\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}}
+	\label{ec_p}
+\end{equation}
+
+Observando las diferencias entre los numeradores de las expresiones \ref{ec_z} y \ref{ec_p} se puede ver que como $R_5 < R_5 + 5_8$, el numerador del $\omega_Z$ es menor que el de $\omega_P$. Analizando los denominadores de igual manera, se v\'e que el denominador de $\omega_Z$ es mayor al denominador de $\omega_P$ ya que $R_4 + R_5 > R_5$. Por lo tanto, $\omega_Z < \omega_P$. Esto indica que el circuito \ref{circ1} es un filtro $High-Pass$ $ Notch$.
+
+
+\paragraph*{Ganancia del circuito (G):}  La ganancia $G$ para el caso de un filtro $High-Pass$ $ Notch$ se obtiene como $\lim_{s\to\infty}H(s)$, estando $H(S)$ definida por la expresi\'on \ref{vovi} y as\'i es como resulta:
+ \begin{equation}
+	G = \lim_{s\to\infty}H(s) = 1 + \frac{R_4}{R_5} 
+\label{G}
+\end{equation}
+	
+	
+	
+	
+	
+	

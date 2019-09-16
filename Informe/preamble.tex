@@ -1,34 +1,112 @@
+
 % Se configura el tipo de documento
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{scrartcl}
 
-% Paquetes utilizados
+%THIS IS TO MAKE THE DOCUMENT PRETTIER
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla]{babel}
-\usepackage{float}
-\usepackage{graphicx}
+\usepackage[spanish, es-tabla, es-nodecimaldot]{babel}
 
-% Paquetes de matematica
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} %AGREGO1
+\usepackage{fourier}			% English language/hyphenation
+
+\usepackage{color}
+\usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{amsmath}
-\usepackage{steinmetz}
+\usepackage{amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+\usepackage{import}
+\usepackage{multicol}
 
-% Paquetes para excel
-\usepackage{csvsimple}
+\usepackage[margin=2cm]{geometry}
 
-% Configuracion del informe
-\setlength{\parindent}{0pt}
+% %%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\normalfont \scshape} 
 
-\usepackage[a4paper, 
-    includehead, 
-    footskip=7mm, 
-    headsep=6mm, 
-    headheight=4.8mm,
-    top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
 
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+\usepackage{float}
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+%FINISHED MAKING PRETTIER DOCUMENT
+
+
+
+% --------------ADDED BY FACUNDO FARALL--------------
+
+%MATHEMATICS PACKAGES
+\usepackage{amsmath,amsfonts,amsthm}
+%FINISHED MATHEMATICS
+
+
+
+%THIS IS SO THAT REFERENCES CAN BE CLICKED
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=blue,
-    citecolor=blue,    
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=blue,    
 }
+%FINISHED CLICKABLE REFERENCES
+
+
+
+%THIS IS TO CHANGE MARGINES FOR SITUATIONS LIKE LONG EQUATIONS
+\usepackage[strict]{changepage}
+%ENDS CHANGER OF MARGINS
+
+
+
+%THIS IS TO USE SMALLER FONT SIZE
+\usepackage[11pt]{moresize}
+%FINISHED FONT SIZE CHANGER
+
+
+
+%THE FOLLOWING ARE CONFIGURATIONS FOR TODONOTES
+\usepackage{todonotes,varwidth}
+\makeatletter
+\tikzstyle{diaanotestyle} = [
+draw=\@todonotes@currentbordercolor,
+fill=\@todonotes@currentbackgroundcolor,
+line width=0.5pt,
+inner sep = 0.8 ex,
+rounded corners=4pt,align=left,
+]
+
+\renewcommand{\@todonotes@drawInlineNote}{%
+	{\begin{tikzpicture}[remember picture,baseline={(0,0)}]%
+		\draw node[diaanotestyle,font=\@todonotes@sizecommand,anchor=base west]{%
+			\begin{varwidth}[t]{10cm}
+			\if@todonotes@authorgiven%
+			{\@todonotes@sizecommand \@todonotes@author:\,\@todonotes@text}%
+			\else%
+			{\@todonotes@sizecommand \@todonotes@text}%
+			\fi
+			\end{varwidth}};%
+		\end{tikzpicture}}%
+}%
+\makeatother
+%HERE ENDS THE CONFIGURATIONS FOR TODONOTES
+
+% --------------ENDS ADDED BY FACUNDO FARALL--------------
