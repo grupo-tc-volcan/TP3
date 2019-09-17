@@ -13,34 +13,33 @@ Debido a la complejidad del circuito \ref{circ1}, se  calcul\'o $\frac{V_O}{V_I}
 Operando algebraicamente, a partir de las ecuaciones \ref{ecsbase} se obtiene la funci\'on transferencia del circuito \ref{circ1}. Siendo $s = j\omega$, la misma se muestra a continuaci\'on:
 
 \begin{equation}
- 	H(s) = \frac{V_O}{V_I} = \frac{R_5}{R_5 + R_8} \cdot 
+ 	H(s) = \frac{V_O}{V_I} = \frac{R_4 + R_5}{R_5} \cdot 
  	\frac
- 	{\frac{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}{R_4 R_5} \cdot s^2
- 		+\frac{C_2 R_1 R_3 (R_4 R_6 R_8 + R_5 R_6 R_8 - R_4 R_5 R_7)}{R_4 R_5 R_6 R_7} \cdot s
- 		+1}
- 	{\frac{C_2 C_6 R_1 R_3 R_5 R_8}{R_4 (R_5 + R_8)} \cdot s^2
- 		+\frac{C_2 R_1 R_3 R_5 R_8 (R_6 + R_7)}{R_4 R_6 R_7 (R_5 + R_8)} \cdot s
- 		+1
+ 	{ s^2
+ 		+\frac{R_4 R_6 R_8 + R_5 R_6 R_8 - R_4 R_5 R_7}{C_6 R_6 R_7 R_8 (R_4 + R_5)} \cdot s
+ 		+\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
+ 	{s^2
+ 		+\frac{R_6 + R_7}{C_6 R_6 R_7} \cdot s
+ 		+\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}
  	}
 	\label{vovi}
 \end{equation}
 
-\todo{Justificaci\'on de que es un HP NOTCH}
 
 \subsubsection{Caracter\'sticas del circuito a partir de la funci\'on transferencia}
 
 Si bien observando la funci\'on transferencia se puede decir que se trata de un filtro de segundo orden, a continuaci\'on se analiza m\'as en detalle a qu\'e tipo de filtro corresponde.
 
 \paragraph*{Polos y ceros:}
-A partir del t\'ermino de mayor grado del numerador y del denominador del cociente de polinomios de la expresi\'on de $H(s)$ (Ecuaci\'on \ref{vovi}) se puede obtener la expresi\'on de los polos y ceros del circuito, ya que simb\'olicamente dichos t\'erminos son $\left(\frac{s}{\omega_Z}\right)^2$ y $\left(\frac{s}{\omega_P}\right)^2$respectivamente. Por lo tanto,
+A partir del t\'ermino de grado cero del numerador y del denominador del cociente de polinomios de la expresi\'on de $H(s)$ (Ecuaci\'on \ref{vovi}) se puede obtener la expresi\'on de los polos y ceros del circuito, ya que simb\'olicamente dichos t\'erminos son $\left(\frac{s}{\omega_Z}\right)^2$ y $\left(\frac{s}{\omega_P}\right)^2$respectivamente. Por lo tanto,
 
 \begin{equation}
-	\omega_Z = \sqrt{\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
+	\omega_Z = \pm\sqrt{\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
 	\label{ec_z}
 \end{equation}
 
 \begin{equation}
-	\omega_P = \sqrt{\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}}
+	\omega_P = \pm \sqrt{\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}}
 	\label{ec_p}
 \end{equation}
 
@@ -51,6 +50,12 @@ Observando las diferencias entre los numeradores de las expresiones \ref{ec_z} y
  \begin{equation}
 	G = \lim_{s\to\infty}H(s) = 1 + \frac{R_4}{R_5} 
 \label{G}
+\end{equation}
+
+\paragraph*{Factor de calidad (Q):} El coeficinete que acompa\~na a "s" en el denominador de la expresi\'on \ref{vovi} es $\frac{\omega_P}{Q}$. Por lo tanto, a partir de dicho coeficiente y de la expresi'on \ref{ec_p} correspondiente al $\omega_P$, se obtiene que:
+
+\begin{equation}
+	Q = \frac{R_{6} R_{7}}{R_{6} + R_{7}} \cdot \sqrt{\frac{C_{6} R_{4} \left(R_{5} + R_{8}\right)}{C_{2} R_{1} R_{3}R_{5} R_{8} }}
 \end{equation}
 	
 	

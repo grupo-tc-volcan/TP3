@@ -1,4 +1,4 @@
-\subsection{Selecci\'on de los componentes}
+\subsection{Dise\~no del circuito - Selecci\'on de componentes}
 Para elegir los valores de cada uno de los componentes del circuito, se tuvieron en cuenta las sugerencias indicadas en el enunciado del trabajo pr\'actico.
 
 \begin{itemize}
@@ -11,6 +11,16 @@ Para elegir los valores de cada uno de los componentes del circuito, se tuvieron
 	\item $k = \frac{\omega_Z}{\omega_P} \leqslant 1 $
 \end{itemize}
 
+Reemplazando con los valores de las sugerencias previamente mencionadas, se reescribe la funci\'on transferencia de la ecuaci\'on \ref{vovi} para mayor simplicidad:
+
+\begin{equation}
+	H(s) = \frac{2}{1+k^2} \cdot \frac{s^2 + \left( \frac{k}{RC}\right)^2}{s^2 + \frac{1}{RCQ} s + \left(\frac{1}{RC}\right)^2}
+	\label{vovi_simple}
+\end{equation}
+
+
+La siguiente tabla presenta las especificaciones consideradas para el dise\~no del circuito:
+
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c}%
@@ -18,6 +28,18 @@ Para elegir los valores de cada uno de los componentes del circuito, se tuvieron
 		$13000 \frac{rad}{s}$ & $2$ & $4dB$\\
 		\hline
 	\end{tabular}
-	\caption{$V_{out}/V_{in}$ del circuito inversor considerando $A_{vol}$ finito.}
-	\label{avolf}
+	\caption{Especificaciones de dise\~no}
+	\label{especificaciones}
 \end{table}
+
+A partir de la ecuaci\'on \ref{vovi_simple} y considerando lo indicado en la tabla \ref{especificaciones}:
+
+\begin{equation}
+	\omega_P = \frac{1}{RC} = 13000\frac{rad}{s}
+	\label{dwp}
+\end{equation}
+
+Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 0,769k\Omega.$
+
+
+

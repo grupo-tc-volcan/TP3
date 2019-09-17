@@ -2,16 +2,17 @@
 \contentsline {section}{\numberline {1}Filtro con GIC}{3}{section.1}% 
 \contentsline {subsection}{\numberline {1.1}Funci\'on transferencia del circuito}{3}{subsection.1.1}% 
 \contentsline {subsubsection}{\numberline {1.1.1}Caracter\'sticas del circuito a partir de la funci\'on transferencia}{3}{subsubsection.1.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Selecci\'on de los componentes}{4}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Polos y ceros}{4}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Variaci\'on de la resistencia $R_8$}{4}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_6$}{4}{subsection.1.5}% 
-\contentsline {subsection}{\numberline {1.6}Limitaciones del circuito}{4}{subsection.1.6}% 
-\contentsline {subsection}{\numberline {1.7}Mediciones y resultados obtenidos}{4}{subsection.1.7}% 
-\contentsline {subsection}{\numberline {1.8}''Notch Depth''}{4}{subsection.1.8}% 
-\contentsline {subsection}{\numberline {1.9}Conclusiones}{4}{subsection.1.9}% 
-\contentsline {section}{\numberline {2}Ejercicio 2}{5}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{6}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{7}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{8}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{9}{section.6}% 
+\contentsline {subsection}{\numberline {1.2}An\'alisis de sensibilidades}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Dise\~no del circuito - Selecci\'on de componentes}{5}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_8$}{6}{subsection.1.5}% 
+\contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{6}{subsection.1.6}% 
+\contentsline {subsection}{\numberline {1.7}Limitaciones del circuito}{6}{subsection.1.7}% 
+\contentsline {subsection}{\numberline {1.8}Mediciones y resultados obtenidos}{6}{subsection.1.8}% 
+\contentsline {subsection}{\numberline {1.9}''Notch Depth''}{6}{subsection.1.9}% 
+\contentsline {subsection}{\numberline {1.10}Conclusiones}{6}{subsection.1.10}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{7}{section.2}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{8}{section.3}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{9}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{10}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{11}{section.6}% 
