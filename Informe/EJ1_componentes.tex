@@ -18,6 +18,9 @@ Reemplazando con los valores de las sugerencias previamente mencionadas, se rees
 	\label{vovi_simple}
 \end{equation}
 
+\begin{equation}
+	\frac{\omega_Z}{\omega_P} = k
+\end{equation}
 
 La siguiente tabla presenta las especificaciones consideradas para el dise\~no del circuito:
 
@@ -39,7 +42,29 @@ A partir de la ecuaci\'on \ref{vovi_simple} y considerando lo indicado en la tab
 	\label{dwp}
 \end{equation}
 
-Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 0,769k\Omega.$
+Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 769\Omega.$ Por lo tanto tomamos el valor comercial m\'as cercano: $750\Omega$
 
 
+Sensibilidades de $Q$ respecto a cada componente del circuito:
+\begin{equation}
+\begin{cases}
+S^{Q}_{R_6} = \frac{1}{k^{2} + 1}\\ \\
+S^{Q}_{R_7} = \frac{k^{2}}{k^{2} + 1}\\ \\
+S^{Q}_{R_5} =\frac{C R^{4} k^{6} \left(4.0 C R^{2} k^{4} - 1.0 \left(k^{2} + 1.0\right)^{2}\right)}{Q^{2} \left(k^{2} + 1.0\right)^{6} \left(3.0 k^{2} + 1.0\right)}
+ \\ \\
+S^{Q}_{R_8} = \frac{C R^{4} k^{6} \left(2.0 C R^{2} k^{2} - 1.0 k^{2} - 1.0\right)}{Q^{2} \left(k^{2} + 1.0\right)^{5} \left(3.0 k^{2} + 1.0\right)}
+\\ \\
+S^{Q}_{C_6} = S^{Q}_{R_4} =\frac{1}{2} \\ \\
+S^{Q}_{C_2} = S^{Q}_{R_1} = S^{Q}_{R_3} =-\frac{1}{2}
+\end{cases}
+\end{equation}
 
+Sensibilidades de $\omega_P$ respecto a cada componente del circuito:
+\begin{equation}
+\begin{cases}
+S^{\omega_P}_{R_5} = \frac{1}{2} \frac{k^{2} - 1}{k^{2} + 1} \\ \\
+S^{\omega_P}_{R_8} = - \frac{k^{2}}{k^{2} + 1}\\ \\
+S^{\omega_P}_{C_2} = S^{\omega_P}_{C_6}= S^{\omega_P}_{R_1}=S^{\omega_P}_{R_3}=	-  \frac{1}{2}\\ \\
+S^{\omega_P}_{R_4} = \frac{1}{2}
+\end{cases}
+\end{equation}
