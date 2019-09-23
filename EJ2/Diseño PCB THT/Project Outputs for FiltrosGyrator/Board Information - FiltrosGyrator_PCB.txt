@@ -1,0 +1,17 @@
+Board Information Report
+Filename     : C:\Users\Lucas\Documents\Actualmente Usando\Teoría de Circuitos\TP3\EJ2\Diseño PCB THT\FiltrosGyrator_PCB.PcbDoc
+Date         : 21/09/2019
+Time         : 05:27:21 p. m.
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 47.2673mmx46.5476mm
+    Components on board, 37
+count : 2
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 60
+    Connections routed, 60
+    Connections remaining, 0
+count : 4

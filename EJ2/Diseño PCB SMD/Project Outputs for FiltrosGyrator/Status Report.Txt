@@ -1,0 +1,11 @@
+Output: Simple BOM
+Type  : SimpleBOM
+From  : Variant [[No Variations]] of Project [FiltrosGyrator.PrjPcb]
+   Generated File[FiltrosGyrator_PCB.BOM]
+   Generated File[FiltrosGyrator_PCB.CSV]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 08:43:53 a. m. On 23/09/2019
