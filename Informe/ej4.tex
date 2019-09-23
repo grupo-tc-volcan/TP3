@@ -20,7 +20,7 @@ Como se puede observar en la imagen anterior el sensor posee dos entradas de flu
     \label{fig:EJ4_mpx2010dp_out}
 \end{figure}
 
-Como se puede apreciar en la figura anterior, la salida del sensor oscila entre $0V$ y $25mV$ aproximadamente. Este rango de tensi\'on se ubica en el orden de magnitud del piso de ruido, por lo que emplear este sensor sin amplificar resultar\'ia en mediciones err\'oneas y probablemente aleatorias (en funci\'on del tipo de ruido presente en el lugar de operaci\'on del sensor). A\'un asi realizando una amplificaci\'on de la salida hay que tener en cuenta que el circuito que se encargue de ello debe ser lo suficientemente inmune al ruido como para que la salida del mismo sea representativa de la presi\'on ejercida sobre el sensor.
+Como se puede apreciar en la figura anterior, la salida del sensor oscila entre $0V$ y $25mV$ aproximadamente (para diferencias de presi\'on de $0KPa$ y $10KPa$ respectivamente). Este rango de tensi\'on se ubica en el orden de magnitud del piso de ruido, por lo que emplear este sensor sin amplificar resultar\'ia en mediciones err\'oneas y probablemente aleatorias (en funci\'on del tipo de ruido presente en el lugar de operaci\'on del sensor). A\'un asi realizando una amplificaci\'on de la salida hay que tener en cuenta que el circuito que se encargue de ello debe ser lo suficientemente inmune al ruido como para que la salida del mismo sea representativa de la presi\'on ejercida sobre el sensor.
 
 
 Por esta raz\'on es apropiado emplear un circuito que contenga un amplificador de instrumentaci\'on, de forma tal de minimizar el error de medida a la salida. 
@@ -52,10 +52,10 @@ Estas caracter\'isticas hacen al amplificador especialmente apto para aplicacion
     \label{fig:EJ4_instrumental_3opamp}
 \end{figure}
  
- La principal ventaja de la configuraci\'on dual es que obviamente se requieren menos amplificadores operacionales. Por otro lado, comparado con la configuraci\'on de tres op-amp el circuito tratar\'a a las dos entradas ($V_1$ y $V_2$) de forma asim\'etrica, debido al tiempo de propagaci\'on existente entre las dos etapas. Este factor hace que el coeficiente de CMRR se degrade en rango de frecuencias elevado. Esta variable no afecta al diseño, dado que se trabaja con tensi\'on en corriente continua y constante. Explicado esto, se utilizar\'a la configuraci\'on de op-amp dual.
+ La principal ventaja de la configuraci\'on dual es que obviamente se requieren menos amplificadores operacionales. Por otro lado, comparado con la configuraci\'on de tres op-amp el circuito tratar\'a a las dos entradas ($v_1$ y $v_2$) de forma asim\'etrica, debido al tiempo de propagaci\'on existente entre las dos etapas. Este factor hace que el coeficiente de CMRR se degrade en rango de frecuencias elevado. Esta variable no afecta al diseño, dado que se trabaja con tensi\'on en corriente continua y constante. Explicado esto, se utilizar\'a la configuraci\'on de op-amp dual.
  
  
-Para este circuito se realiza un an\'alisis de forma tal de conseguir la ganancia del sistema. Para ello se modelizan las entradas en modo diferencial como dos fuentes de valor $\frac{v_d}{2}$ y una tensi\'on $V_{cm}$ que simboliza una componente presente en ambas entradas de igual forma, que por ejemplo puede ser la representaci\'on de ruido en las se\~nales. El modelo se presenta a continuaci\'on.
+Para este circuito se realiza un an\'alisis de forma tal de conseguir la ganancia del sistema. Para ello se modelizan las entradas en modo diferencial como dos fuentes de valor $\frac{v_d}{2}$ y una tensi\'on $v_{cm}$ que simboliza una componente presente en ambas entradas de igual forma, que por ejemplo puede ser la representaci\'on de ruido en las se\~nales. El modelo se presenta a continuaci\'on.
 
 \begin{figure}[H]
     \centering
@@ -101,13 +101,90 @@ Del circuito anterior se deduce la ganancia, seg\'un la siguiente ecuaci\'on:
 
 \begin{equation}
 v_{out} = v_d \cdot \left( 1+\frac{R_2}{R_1}+\frac{2R_2}{R_G} \right)
+\label{EJ4_adjgain}
 \end{equation}
 
 De esta forma, la ganancia tendr\'a una dependencia no lineal respecto de la resistencia variable $R_G$.
 
-\section{Selecci\'on de componentes}
+\subsection{Selecci\'on de componentes}
+
+Se deben seleccionar los componentes para obtener la ganancia deseada. De la datasheet del circuito se observa que el rango de tensiones de salida del sensor \textsc{mpx2010dp} va desde $0V$ a $25mV$. La salida del circuito debe ser de $0V$ a $3,3V$. Luego, la ganancia te\'orica del sistema debe valer $A = 66$. De la ecuaci\'on~\ref{EJ4_adjgain} se deduce la siguiente igualadad.
 
 
+\begin{equation}
+A = 1+\frac{R_2}{R_1}+\frac{2R_2}{R_G}
+\end{equation}
+
+Con la expresi\'on anterior, y fijando $R_2$ y $R_1$ a valores normalizados, se obtiene la siguiente combinaci\'on de componentes.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c}
+        $R_1 = R_4$ & $R_2 = R_3$ & $R_G$ & $Preset (R_G)$  \\
+        \hline \\
+        $68 K\Omega$ & $82 K\Omega$ & $2.57 K\Omega$ & $5 K\Omega$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+En general se busca utilizar componentes SMD dado que las tolerancias son del $1\%$, por lo que tendr\'an menos impacto sobre la condici\'on de puente. Para el resistor $R_G$ se utilizar\'a un preset de forma tal de hacer la ganancia ajustable.
+
+\subsection{Limitaci\'on del rango de salida}
+
+Dado que el circuito adapta se\~nales que pueden ser utlizadas por ejemplo por un microcontrolador, es necesario limitar la salida del mismo a un valor seguro para la etapa que adquiere la se\~nal. En este caso, el l\'imite superior de la salida est\'a dentro del rango comprendido entre $3,1V$ y $3,3V$. Para ello, se puede emplear un diodo zener en paralelo a la salida del circuito. Para ello se seleccion\'o un diodo cuyo valor de tensi\'on de zener asciende a $v_z = 3,3V$.
+
+
+En este punto cabe destacar que al accionarse esta protecci\'on hay que tener especial cuidado en la corriente que se le exige a los amplificadores operacionales, debido a que es factible que el valor sea excesivo, haciendo que el circuito se queme. Para evitar esto, se puede colocar una impedancia en serie a la salida del \'ultimo amplificador operacional, de forma tal de limitar la corriente.
+
+Otra opci\'on factible es utilizar un amplificador operacional del tipo rail to rail, aliment\'andolo con una tensi\'on dentro del rango de tensi\'on de salida m\'axima. Esto fue desestimado en principio porque el circuito debe tener una sola alimentaci\'on, y se considrer\'o que el sensor de presi\'on requiere un valor m\'as alto para funcionar correctamente. Por otro lado, el integrado que contiene a los amplificadores con estas caracter\'isticas tiene un costo mayor.
+
+\begin{equation}
+ COMPLETAR ESTO!!!!!!!!!!!!!!!!!!!!!!
+\end{equation}
+
+\subsection{Medici\'on de volumen}
+
+El circuito sintetizado anteriormente puede ser adaptado para medir el volumen de l\'iquido contenido en un tanque cil\'indrico de radio conocido.
+
+Se observa que la presi\'on se define como $P = \frac{\Delta F}{\Delta S}$, donde $F$ es la fuerza ejercida sobre una superficie de \'area $S$. Como el origen de esta fuerza es el peso de un l\'iquido de densidad $\delta$, entonces $F = \delta \cdot h \cdot A$ (donde $h$ representa la altura de columna de l\'iquido). Si combinamos estas ecuaciones se obtiene lo siguiente:
+
+\begin{equation}
+P  = \delta \cdot h
+\end{equation}
+
+Adem\'as el volumen de l\'iquido puede ser expresado como $V = S \cdot h$, por lo que el volumen tambi\'en puede ser calculado como
+
+\begin{equation}
+V = \frac{P \cdot S}{\delta}
+\end{equation}
+
+Y por otro lado se conoce la dependencia de la tensi\'on de salida respecto a la diferencia de presi\'on medida por el sensor.
+
+\begin{equation}
+v_{out} = A_{sensor} \cdot A_{circuito} \cdot P
+\end{equation}
+
+Dado que se conoce el valor del radio del recipiente y la densidad del l\'iquido que contiene, el volumen que ocupa el l\'iquido es directamente proporcional a la presi\'on que este ejerce sobre el fondo del recipiente. Luego, no habr\'ia que hacer ning\'un tipo de cambio al circuito, dado que si se conoce la tensi\'on $V_out$ se puede calcular el volumen que ocupa empleando la siguiente ecuaci\'on:
+
+\begin{equation}
+V = \frac{v_{out} \cdot S}{\delta \cdot A_{sensor} \cdot A_{circuito}}
+\end{equation}
+
+Por \'ultimo, el tanque es cili\'indrico de radio $R$ por lo que $S = \pi \cdot R^2$. Luego:
+
+\begin{equation}
+V = \frac{v_{out} \cdot \pi \cdot R^2}{\delta \cdot A_{sensor} \cdot A_{circuito}}
+\end{equation}
+
+Donde $A_{circuito} = 66$, $A_{sensor} = 2,5 \frac{mV}{KPa}$. De esta forma, el circuito podr\'a medir vol\'umenes que van desde $V_{min} = 0$ hasta $V_{m\'ax} = \frac{3,3 [Volt] \cdot \pi \cdot R^2}{\delta \cdot A_{sensor} \cdot A_{circuito}}$
+
+Desde el punto de vista constructivo, para que lo anteriormente desarrollado sea v\'alido, una de las salidas del sensor debe estar colocada en el fondo del tanque y la otra debe estar en contacto con la atm\'osfera para actuar de referencia. De esta forma el sensor mide la presi\'on ejercida exclusivamente por la columna de agua encima de \'el (presi\'on manom\'etrica).
+
+\subsection{Conclusiones}
+
+\begin{equation}
+ COMPLETAR ESTO!!!!!!!!!!!!!!!!!!!!!!
+\end{equation}
 
 
 %\begin{figure}[H]
