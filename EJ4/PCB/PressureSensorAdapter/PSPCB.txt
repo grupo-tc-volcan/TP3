@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : C:\Users\Joaco\Desktop\repos\TC\TP3\EJ4\PCB\PressureSensorAdapter\PSPCB.PcbDoc
+Date         : 25/9/2019
+Time         : 14:50:13
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100,00%
+    Connections, 29
+    Connections routed, 29
+    Connections remaining, 0
+count : 4
