@@ -1,0 +1,10 @@
+------------------------------------------------------------
+Design Hierarchy Report for 3_band_EQ.PrjPcb
+-- 20/09/2019
+-- 19:59:56
+------------------------------------------------------------
+
+Top                           SCH        (Top.SchDoc)
+    U_EQ_A                    SCH        (EQ_A.SchDoc)
+    U_EQ_B                    SCH        (EQ_B.SchDoc)
+    U_EQ_C                    SCH        (EQ_C.SchDoc)

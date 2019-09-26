@@ -1,0 +1,29 @@
+Net Status Report
+Filename     : C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc
+Date         : 20/09/2019
+Time         : 20:05:52
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    +Vcc, Signal Layers Only, 56.1824mm
+    -Vcc, Signal Layers Only, 70.6118mm
+    Aud_in, Signal Layers Only, 63.1355mm
+    Aud_out, Signal Layers Only, 70.8632mm
+    GND, Signal Layers Only, 17.3442mm
+    NetC1_a_1, Signal Layers Only, 7.401mm
+    NetC1_a_2, Signal Layers Only, 7.6409mm
+    NetC1_b_1, Signal Layers Only, 8.2767mm
+    NetC1_b_2, Signal Layers Only, 8.4854mm
+    NetC1_c_1, Signal Layers Only, 11.0925mm
+    NetC1_c_2, Signal Layers Only, 11.7223mm
+    NetC2_a_1, Signal Layers Only, 2.8mm
+    NetC2_a_2, Signal Layers Only, 59.2369mm
+    NetC2_b_1, Signal Layers Only, 2.5554mm
+    NetC2_b_2, Signal Layers Only, 106.3854mm
+    NetC2_c_1, Signal Layers Only, 3.357mm
+    NetC2_c_2, Signal Layers Only, 209.626mm
+    NetR1_1, Signal Layers Only, 117.8764mm
+    NetR1a_b_1, Signal Layers Only, 142.78mm
+    NetR1a_c_1, Signal Layers Only, 173.4207mm
+    NetR1b_c_2, Signal Layers Only, 11.8036mm
+count : 21

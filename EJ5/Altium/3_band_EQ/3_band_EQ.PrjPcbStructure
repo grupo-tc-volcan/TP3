@@ -1,0 +1,4 @@
+Record=TopLevelDocument|FileName=Top.SchDoc
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_EQ_A|SchDesignator=U_EQ_A|FileName=EQ_A.SchDoc|SymbolType=Normal|RawFileName=EQ_A.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_EQ_B|SchDesignator=U_EQ_B|FileName=EQ_B.SchDoc|SymbolType=Normal|RawFileName=EQ_B.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_EQ_C|SchDesignator=U_EQ_C|FileName=EQ_C.SchDoc|SymbolType=Normal|RawFileName=EQ_C.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
