@@ -136,11 +136,30 @@ Dado que el circuito adapta se\~nales que pueden ser utlizadas por ejemplo por u
 
 En este punto cabe destacar que al accionarse esta protecci\'on hay que tener especial cuidado en la corriente que se le exige a los amplificadores operacionales, debido a que es factible que el valor sea excesivo, haciendo que el circuito se queme. Para evitar esto, se puede colocar una impedancia en serie a la salida del \'ultimo amplificador operacional, de forma tal de limitar la corriente.
 
-Otra opci\'on factible es utilizar un amplificador operacional del tipo rail to rail, aliment\'andolo con una tensi\'on dentro del rango de tensi\'on de salida m\'axima. Esto fue desestimado en principio porque el circuito debe tener una sola alimentaci\'on, y se considrer\'o que el sensor de presi\'on requiere un valor m\'as alto para funcionar correctamente. Por otro lado, el integrado que contiene a los amplificadores con estas caracter\'isticas tiene un costo mayor.
+
+Para realizar el c\'alculo de la corriente m\'axima admisible por el integrado se busca de la datasheet del operacional que el DC Swing m\'aximo a la salida es de $\pm 13,5V$, cargando al circuito con una impedancia de $10k\Omega$. Esto resulta en una intensidad m\'axima de $13,5mA$, y aplicando un coeficiente de margen se emplea $I_{out}^{max} = 10mA$.
+
+Con la corriente m\'axima calculada, y suponiendo que la m\'axima salida del sensor es $26mV$ (dato proveniente de la hoja de datos), se deduce que la salida del circuito presentar\'a una tensi\'on de aproximadamente $3,432V$. Si a esto se le resta la ca\'ida en el zener, y dividiendo por la corriente m\'axima deseada se obtiene:
 
 \begin{equation}
- COMPLETAR ESTO!!!!!!!!!!!!!!!!!!!!!!
+R_z = \frac{\Delta V_{R_z}}{I_{max}} = 13,2 \Omega
 \end{equation}
+
+Normalizando el valor, se utiliza un resistor de valor $R_z = 13,2 \Omega$.
+
+Cabe resaltar que otra opci\'on factible para limitar la salida del circuito es utilizar un amplificador operacional del tipo rail to rail, aliment\'andolo con una tensi\'on dentro del rango de tensi\'on de salida m\'axima. Esto fue desestimado en principio porque el circuito debe tener una sola alimentaci\'on, y se considrer\'o que el sensor de presi\'on requiere un valor m\'as alto para funcionar correctamente. Por otro lado, el integrado que contiene a los amplificadores con estas caracter\'isticas tiene un costo mayor.
+
+\subsection{Simulaci\'on del circuito}
+
+Habiendo realizado el dise\~no y el c\'alculo del circuito, se procede a realizar las simulaciones pertinentes para verificar que este funcione correctamente. Particularmente, se llev\'o a cabo un an\'alisis montecarlo para poder observar c\'omo afecta la tolerancia de cada uno de los componentes al comportamiento del amplificador. Todos los resistores son del tipo SMD, y poseen una tolerancia del $1\%$. Se asume al circuito calibrado por el preset, cuya tolerancia es supuesta nula debido a que es ajustable. A continuaci\'on se adjunta la simulaci\'on.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../EJ4/resources/montecarlo.png}
+	\caption{Montecarlo del circuito}
+   	\label{fig:EJ4_montecarlo}
+\end{figure}
+
 
 \subsection{Medici\'on de volumen}
 
@@ -180,7 +199,7 @@ Donde $A_{circuito} = 66$, $A_{sensor} = 2,5 \frac{mV}{KPa}$. De esta forma, el 
 
 Desde el punto de vista constructivo, para que lo anteriormente desarrollado sea v\'alido, una de las salidas del sensor debe estar colocada en el fondo del tanque y la otra debe estar en contacto con la atm\'osfera para actuar de referencia. De esta forma el sensor mide la presi\'on ejercida exclusivamente por la columna de agua encima de \'el (presi\'on manom\'etrica).
 
-\subsection{Conclusiones}
+\subsection{Mediciones y an\'alisis}
 
 \begin{equation}
  COMPLETAR ESTO!!!!!!!!!!!!!!!!!!!!!!
