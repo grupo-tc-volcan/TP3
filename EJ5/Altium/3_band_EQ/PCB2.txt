@@ -1,12 +1,12 @@
 Board Information Report
 Filename     : C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB2.PcbDoc
-Date         : 26/09/2019
-Time         : 17:08:58
+Date         : 27/09/2019
+Time         : 12:51:05
 Time Elapsed : 00:00:00
 
 Routing Information
     Routing completion, 100.00%
-    Connections, 57
-    Connections routed, 57
+    Connections, 62
+    Connections routed, 62
     Connections remaining, 0
 count : 4
