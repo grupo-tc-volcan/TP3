@@ -4,18 +4,47 @@
 
 
 \subsection{Resolución teórica del circuito}
+Se toma el circuito propuesto por la cátedra (ver Figura \ref{fig:EQ_module})
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../EJ5/latex_resources/EQ_module}
+    \caption{Circuito ecualizador.}
+    \label{fig:EQ_module}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../EJ5/latex_resources/Z1_2_and_3}
+    \caption{Cálculo intermedio.}
+    \label{fig:Z123}
+\end{figure}
+
 \begin{align}
     &Z_1 = \frac{R_2' \cdot \frac{1}{s \cdot C_1}}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z1} \\
     &Z_2 = \frac{R_2'' \cdot \frac{1}{s \cdot C_1}}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z2} \\
-    &Z_2 = \frac{R_2'' \cdot R_2'}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z3} \\
+    &Z_3 = \frac{R_2'' \cdot R_2'}{R_2' + \frac{1}{s \cdot C_1} + R_2''}  \label{eq:ej5_z3} \\
     &R_2 = R_2' + R_2'' \label{eq:ej5_r2}
 \end{align}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../EJ5/latex_resources/Z4_5_and_6}
+    \caption{Cálculo intermedio.}
+    \label{fig:Z456}
+\end{figure}
 
 \begin{align}
     &Z_4 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_2 + R_1}  \label{eq:ej5_z4} \\
     &Z_5 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_3 + \frac{1}{s \cdot C_2}}  \label{eq:ej5_z5} \\
     &Z_6 = \frac{\left(Z_1 + R_1\right) \cdot \left(Z_2 + R_1\right) + \left(Z_1 + R_1\right) \cdot \left(Z_3 + \frac{1}{s \cdot C_2}\right) + \left(Z_3 + \frac{1}{s \cdot C_2}\right) \cdot \left(Z_2 + R_1\right)}{Z_1 + R_1}  \label{eq:ej5_z6}
 \end{align}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../EJ5/latex_resources/Z7_and_8}
+    \caption{Cálculo intermedio.}
+    \label{fig:Z78}
+\end{figure}
 
 \begin{align}
     &Z_7 = \frac{R_3 \cdot Z_4}{R_3 + Z_4} \label{eq:ej5_z7} \\
@@ -86,6 +115,14 @@ Ganancia para $R_2' = R_2$:
 
 
 \subsection{Caracterización de polos y ceros}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../EJ5/latex_resources/diagrama_polos_y_ceros}
+    \caption{Diagramas de polos y ceros}
+    \label{fig:poles_and_zeros_diag_ej5}
+\end{figure}
+
 Raíces del numerador de la transferencia aproximada:
 \begin{ssmall}
 \begin{align}

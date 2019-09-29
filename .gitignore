@@ -10,3 +10,6 @@ __Previews
 
 # Ignore files from LaTeX
 Informe.pdf
+
+# Ignore files from draw.io
+*.drawio
