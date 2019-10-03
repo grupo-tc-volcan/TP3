@@ -36,22 +36,21 @@ V_{in_{max}}  = \frac{SR}{\rvert H(f)\rvert 2\pi f}
 \label{vinmax}
 \end{equation}
 
-El valor de SR, para el c\'alculo te\'orico, fue sacado de hojas de datos del amplificador operacional LM833 de Texas Instrument\footnote{Hoja de datos del operacional LM833: https://html.alldatasheet.com/html-pdf/784648/TI1/LM833/52/1/LM833.html}.
+El valor de SR, para el c\'alculo te\'orico, fue sacado de hojas de datos del amplificador operacional LM833 de Texas Instrument\footnote{Hoja de datos del operacional LM833: https://html.alldatasheet.com/html-pdf/784648/TI1/LM833/52/1/LM833.html}. 
 Se encontr\'o que $SR = 7 \frac{V}{\mu s}$. Reemplazando con este valor en la expresi\'on \ref{vin_max}, se obtiene que la tensi\'on de entrada m\'axima limitada por el slew rate es:
 
-\todo{vinmax en funcion de f}
 \begin{equation}
-	V_{in_{max}}  = 
+	V_{in_{max}}  = \frac{\left(17,36 \cdot 10^8 f^{4} - 1.37 \cdot 10^{16} f^{2} + 3.52 \cdot 10^{22}\right)}{f \sqrt{61,19 \cdot 10^5 f^{8} - 62,49 \cdot 10^{12} f^{6} + 2.45 \cdot 10^{20} f^{4} - 3.57 \cdot 10^{26} f^{2} + 1.70 \cdot 10^{32}}}		
 \label{vin_max}
 \end{equation}
 
-\todo{graficar la funcion vin max en funcion de f}
-%\begin{figure}[H] %!ht
-%	\centering
-%	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricossr.png}
-%	\caption{Tensi\'on de entrada m\'axima limitada por slew rate.}
-%	\label{c1sr}
-%\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxsr.png}
+	\caption{Tensi\'on de entrada m\'axima limitada por slew rate.}
+	\label{vinmaxsr}
+\end{figure}
 
 \subsubsection*{Influenccia de la saturaci\'on en $V_{in_{max}}$}
 La tensi\'on pico a pico m\'axima de salida del amplificador operacional es llamada 
@@ -70,19 +69,19 @@ V_{in_{max}} = \frac{15V}{\rvert H(s) \rvert}
 \todo{en ec anterior poner cuanto da numericamente}
 
 \todo{grafico}
-%\begin{figure}[H] %!ht
-%	\centering
-%	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/c1sat.png}
-%	\caption{Tensi\'on m\'axima de entrada limitada por saturaci\'on.}
-%	\label{c1sat}
-%\end{figure}
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxsat.png}
+	\caption{Tensi\'on m\'axima de entrada limitada por saturaci\'on.}
+	\label{vinmaxsat}
+\end{figure}
 
 \subsubsection*{Combinaci\'on del efecto de slew rate y saturaci\'on sobre la tensi\'on m\'axima de entrada}
 
 \todo{grafico}
-%\begin{figure}[H] %!ht
-%	\centering
-%	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/c1vimax.png}
-%	\caption{Tensi\'on m\'axima de entrada limitada por slew rate y saturaci\'on.}
-%	\label{c1vinmax}
-%\end{figure}
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxtotal.png}
+	\caption{Tensi\'on m\'axima de entrada limitada por slew rate y saturaci\'on.}
+	\label{vinmaxtotal}
+\end{figure}
