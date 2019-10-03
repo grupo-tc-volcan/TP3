@@ -42,9 +42,23 @@ A partir de la ecuaci\'on \ref{vovi_simple} y considerando lo indicado en la tab
 	\label{dwp}
 \end{equation}
 
-Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 769\Omega.$ Por lo tanto tomamos el valor comercial m\'as cercano: $750\Omega$
+Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 769\Omega.$ Por lo tanto tomamos el valor comercial m\'as cercano: $750\Omega$. Esto produce un $\omega_P = 13333 \frac{rad}{s}$. A partir de estos $C$ y $R$ elegidos, a continuaci\'on se muestran los valores que deb\'ian conseguirse para el resto de los componentes con la finalidad de respetar las especificaciones presentadas en la tabla \ref{especificaciones}.
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c c c c}%
+		\bfseries  & Valor deseado & Valor obtenido& Componentes empleados \\ \hline
+		$R4$ & $309,62\Omega$  & $309,52\Omega$ & $390\Omega // 1,5k\Omega$\\
+			$R5$ & $527,3\Omega$  & $527,50\Omega$ & $1,2k\Omega // 1,2k\Omega$\\
+				$R6$ & $1,89k\Omega$  & $1,89\Omega$ & $3k\Omega // 5,1k\Omega$\\
+				$R7$ & $7,27k\Omega$  & $7,10k\Omega$ & $20k\Omega // 11k\Omega$\\
+		\hline
+	\end{tabular}
+	\caption{Especificaciones de dise\~no}
+	\label{especificaciones}
+\end{table}
 
+\todo{ver si dejar estas sensibilidades o borrar.}
 Sensibilidades de $Q$ respecto a cada componente del circuito:
 \begin{equation}
 \begin{cases}

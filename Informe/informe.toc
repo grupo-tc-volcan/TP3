@@ -7,12 +7,12 @@
 \contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
 \contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_8$}{6}{subsection.1.5}% 
 \contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{6}{subsection.1.6}% 
-\contentsline {subsection}{\numberline {1.7}Limitaciones del circuito}{6}{subsection.1.7}% 
-\contentsline {subsection}{\numberline {1.8}Mediciones y resultados obtenidos}{6}{subsection.1.8}% 
-\contentsline {subsection}{\numberline {1.9}''Notch Depth''}{6}{subsection.1.9}% 
-\contentsline {subsection}{\numberline {1.10}Conclusiones}{6}{subsection.1.10}% 
-\contentsline {section}{\numberline {2}Ejercicio 2}{7}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{8}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{9}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{10}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{11}{section.6}% 
+\contentsline {subsection}{\numberline {1.7}Limitaci\IeC {\'o}n de tensi\'on de entrada}{6}{subsection.1.7}% 
+\contentsline {subsection}{\numberline {1.8}Mediciones y resultados obtenidos}{7}{subsection.1.8}% 
+\contentsline {subsection}{\numberline {1.9}''Notch Depth''}{7}{subsection.1.9}% 
+\contentsline {subsection}{\numberline {1.10}Conclusiones}{7}{subsection.1.10}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{8}{section.2}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{9}{section.3}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{10}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{11}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{12}{section.6}% 
