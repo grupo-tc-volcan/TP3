@@ -4,7 +4,7 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Caracter\'sticas del circuito a partir de la funci\'on transferencia}{3}{subsubsection.1.1.1}% 
 \contentsline {subsection}{\numberline {1.2}An\'alisis de sensibilidades}{4}{subsection.1.2}% 
 \contentsline {subsection}{\numberline {1.3}Dise\~no del circuito - Selecci\'on de componentes}{5}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Polos y ceros}{7}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
 \contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_8$}{7}{subsection.1.5}% 
 \contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{7}{subsection.1.6}% 
 \contentsline {subsection}{\numberline {1.7}Limitaci\IeC {\'o}n de tensi\'on de entrada}{7}{subsection.1.7}% 
