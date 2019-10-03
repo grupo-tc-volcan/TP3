@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {1.7}Limitaci\IeC {\'o}n de tensi\'on de entrada}{7}{subsection.1.7}% 
 \contentsline {subsection}{\numberline {1.8}Mediciones y resultados obtenidos}{8}{subsection.1.8}% 
 \contentsline {subsubsection}{\numberline {1.8.1}Transferencia del circuito}{8}{subsubsection.1.8.1}% 
-\contentsline {subsubsection}{\numberline {1.8.2}Impedancia de entrada}{8}{subsubsection.1.8.2}% 
+\contentsline {subsubsection}{\numberline {1.8.2}Impedancia de entrada}{9}{subsubsection.1.8.2}% 
 \contentsline {subsubsection}{\numberline {1.8.3}Impedancia de salida}{9}{subsubsection.1.8.3}% 
 \contentsline {subsection}{\numberline {1.9}''Notch Depth''}{9}{subsection.1.9}% 
 \contentsline {subsection}{\numberline {1.10}Conclusiones}{9}{subsection.1.10}% 
