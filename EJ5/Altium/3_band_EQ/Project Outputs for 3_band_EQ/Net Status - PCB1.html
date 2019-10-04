@@ -1,0 +1,338 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Net Status Report</title>
+</head>
+<body onload="document.getElementById('radio_mm').click()"><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Net Status Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20/09/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20:05:52</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc" class="file"><acronym title="C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc">C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc</acronym></a></td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Units:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">
+<form><input type="radio" name="radio_units" id="radio_mm" onclick="changeUnits(this, 'mm')">mm<input type="radio" name="radio_units" id="radio_mil" onclick="changeUnits(this, 'mil')">mils</form>
+</td>
+</tr>
+</table><a name="IDZ00TSSE1HDWKE3PI5MRCAS3C0BZY3WXE5UDP0ND2Y4EF32G0R3ZB"><table>
+<tr>
+<th class="column1">Nets</th>
+<th class="column2">Layer</th>
+<th class="column3">Length</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3070.685mil|Location2.X=4288.921mil|Location1.Y=3331.315mil|Location2.Y=3848.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3070.685mil|Location2.X=4288.921mil|Location1.Y=3331.315mil|Location2.Y=3848.307mil|Absolute=True">+Vcc</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="22119053">56.1824mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3370.685mil|Location2.X=4588.921mil|Location1.Y=2907.362mil|Location2.Y=3848.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3370.685mil|Location2.X=4588.921mil|Location1.Y=2907.362mil|Location2.Y=3848.307mil|Absolute=True">-Vcc</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="27799936">70.6118mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.378mil|Location2.X=3453.819mil|Location1.Y=2113.992mil|Location2.Y=2677.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1731.378mil|Location2.X=3453.819mil|Location1.Y=2113.992mil|Location2.Y=2677.551mil|Absolute=True">Aud_in</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="24856514">63.1355mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.732mil|Location2.X=3257.425mil|Location1.Y=2854.15mil|Location2.Y=3730.26mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.732mil|Location2.X=3257.425mil|Location1.Y=2854.15mil|Location2.Y=3730.26mil|Absolute=True">Aud_out</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="27898883">70.8632mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1534.528mil|Location2.X=4588.921mil|Location1.Y=2298.717mil|Location2.Y=3790.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1534.528mil|Location2.X=4588.921mil|Location1.Y=2298.717mil|Location2.Y=3790.299mil|Absolute=True">GND</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="6828428">17.3442mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2921.787mil|Location2.X=3250.181mil|Location1.Y=2168.669mil|Location2.Y=2344.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2921.787mil|Location2.X=3250.181mil|Location1.Y=2168.669mil|Location2.Y=2344.433mil|Absolute=True">NetC1_a_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2913782">7.401mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565.213mil|Location2.X=2899.787mil|Location1.Y=2168.669mil|Location2.Y=2344.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565.213mil|Location2.X=2899.787mil|Location1.Y=2168.669mil|Location2.Y=2344.433mil|Absolute=True">NetC1_a_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3008209">7.6409mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4159.701mil|Location2.X=4484.158mil|Location1.Y=2219.85mil|Location2.Y=2415.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4159.701mil|Location2.X=4484.158mil|Location1.Y=2219.85mil|Location2.Y=2415.299mil|Absolute=True">NetC1_b_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3258560">8.2767mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3813.244mil|Location2.X=4137.701mil|Location1.Y=2219.85mil|Location2.Y=2415.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3813.244mil|Location2.X=4137.701mil|Location1.Y=2219.85mil|Location2.Y=2415.299mil|Absolute=True">NetC1_b_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3340720">8.4854mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5248.559mil|Location2.X=5629.52mil|Location1.Y=2133.236mil|Location2.Y=4464.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5248.559mil|Location2.X=5629.52mil|Location1.Y=2133.236mil|Location2.Y=4464.449mil|Absolute=True">NetC1_c_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4367139">11.0925mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4813.551mil|Location2.X=5524.961mil|Location1.Y=2133.236mil|Location2.Y=4464.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4813.551mil|Location2.X=5524.961mil|Location1.Y=2133.236mil|Location2.Y=4464.449mil|Absolute=True">NetC1_c_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4615090">11.7223mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2859.268mil|Location2.X=2957.819mil|Location1.Y=2245.882mil|Location2.Y=2439.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2859.268mil|Location2.X=2957.819mil|Location1.Y=2245.882mil|Location2.Y=2439.394mil|Absolute=True">NetC2_a_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="1102363">2.8mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2667.575mil|Location2.X=4401.457mil|Location1.Y=2461.394mil|Location2.Y=3514.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2667.575mil|Location2.X=4401.457mil|Location1.Y=2461.394mil|Location2.Y=3514.843mil|Absolute=True">NetC2_a_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="23321612">59.2369mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.362mil|Location2.X=4201.913mil|Location1.Y=2253.819mil|Location2.Y=2499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.362mil|Location2.X=4201.913mil|Location1.Y=2253.819mil|Location2.Y=2499mil|Absolute=True">NetC2_b_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="1006072">2.5554mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556.181mil|Location2.X=4780.591mil|Location1.Y=2080.591mil|Location2.Y=3437.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556.181mil|Location2.X=4780.591mil|Location1.Y=2080.591mil|Location2.Y=3437.74mil|Absolute=True">NetC2_b_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="41884020">106.3854mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.228mil|Location2.X=5272.779mil|Location1.Y=2226.197mil|Location2.Y=2489.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.228mil|Location2.X=5272.779mil|Location1.Y=2226.197mil|Location2.Y=2489.764mil|Absolute=True">NetC2_c_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="1321654">3.357mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3170.685mil|Location2.X=5434.669mil|Location1.Y=2463.638mil|Location2.Y=3518.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3170.685mil|Location2.X=5434.669mil|Location1.Y=2463.638mil|Location2.Y=3518.78mil|Absolute=True">NetC2_c_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="82529912">209.626mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1841.614mil|Location2.X=3357.425mil|Location1.Y=2669.173mil|Location2.Y=3836.496mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1841.614mil|Location2.X=3357.425mil|Location1.Y=2669.173mil|Location2.Y=3836.496mil|Absolute=True">NetR1_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="46408038">117.8764mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2355.394mil|Location2.X=4670.354mil|Location1.Y=2267.095mil|Location2.Y=3137.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2355.394mil|Location2.X=4670.354mil|Location1.Y=2267.095mil|Location2.Y=3137.74mil|Absolute=True">NetR1a_b_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="56212594">142.78mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.299mil|Location2.X=5629.52mil|Location1.Y=2135.709mil|Location2.Y=3437.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3611.299mil|Location2.X=5629.52mil|Location1.Y=2135.709mil|Location2.Y=3437.74mil|Absolute=True">NetR1a_c_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="68275884">173.4207mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2774.685mil|Location2.X=4984.158mil|Location1.Y=2414.15mil|Location2.Y=3179.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2774.685mil|Location2.X=4984.158mil|Location1.Y=2414.15mil|Location2.Y=3179.291mil|Absolute=True">NetR1b_c_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="4647100">11.8036mm
+			</a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

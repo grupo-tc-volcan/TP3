@@ -1,0 +1,16 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~3_band_EQ.PrjPcb|ReportField=ProjectFullPath~C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\3_band_EQ.PrjPcb|ReportField=Title~Bill of Materials For Project [3_band_EQ.PrjPcb] (No PCB Document Selected)|ReportField=ReportTime~18:53:33|ReportField=ReportDate~3/10/2019|ReportField=ReportDateTime~3/10/2019 18:53:33|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=TotalQuantity~30|ReportField=TotalActualPrice~0|ReportField=TotalTargetPrice~0|ReportField=VersionControl_RevNumber~|ReportField=VersionControl_ProjFolderRevNumber~5be77ca0630b5754bb82e9b29a7ba5f63a60231b|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~3/10/2019|ReportField=CurrentTime~18:53:28|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\Top.SchDoc|ReportField=DocumentName~Top.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~27/09/2019|ReportField=Organization~|ReportField=ProjectName~3_band_EQ.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~3_band_EQ.PrjPcb|ReportField=DataSourceFullPath~C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP3\EJ5\Altium\3_band_EQ\3_band_EQ.PrjPcb|ReportField=PCBConfigurationName~Sources|ReportField=Item~|ReportField=ItemRevision~|ReportField=ItemAndRevision~|ReportField=ItemRevisionBase~|ReportField=ItemRevisionLevel1~|ReportField=ItemRevisionLevel2~|ReportField=ItemRevisionLevel1AndBase~|ReportField=ItemRevisionLevel2AndLevel1~
+1|47nF||C1_a, C2_b|CAP200|CAP|2
+2|470nF||C1_b, C2_a|CAP200|CAP|2
+3|56nF||C1_c|CAP200|CAP|1
+4|5.6nF||C2_c|CAP200|CAP|1
+5|100nF||C3, C4|CAP200|CAP|2
+6|BORNERA 3||J1|BORNERA3|BORNERA 3|1
+7|FC68131|Stereo Jack, 3.5mm, 3pos, Pcb|JACK1, JACK2|*FC68131-5P|FC68131|2
+8|1K||R1, R2_b, R2_c|POTENCIOMETRO|POTENCIOMETRO|3
+9|120R||R1a_a, R1a_b, R1b_a, R1b_b|0805|RES|4
+10|150R||R1a_c, R1b_c|0805|RES|2
+11|100K||R2_a|POTENCIOMETRO|POTENCIOMETRO|1
+12|470R||R3|0805|RES|1
+13|1M||R3a_a, R3b_a|0805|RES|2
+14|10K||R3a_b, R3a_c, R3b_b, R3b_c|0805|RES|4
+15|LM833|Dual Audio Operational Amplifier|U1, U2|DIP8|LM833|2
