@@ -201,9 +201,40 @@ Desde el punto de vista constructivo, para que lo anteriormente desarrollado sea
 
 \subsection{Mediciones y an\'alisis}
 
+Luego de armar el circuito, se procedi\'o a realizar mediciones sobre el mismo de forma tal de verificar lo analizado en la s\'intesis del mismo. Para llevar a cabo esto se inyect\'o en el circuito una se\~nal de tipo triangular que oscila entre $0$ y $25mV$, con una simetr\'ia del $100\%$ para emular la salida del sensor. La respuesta del circuito ante este est\'imulo es una se\'~nal de la misma forma, pero dentro de un rango que va desde $-86mV$ a $3,168V$. Idealmente, el rango de salida deber\'ia ser de $0 - 3.2v$. La diferencia respecto de lo te\'orico est\'a relacionada a un input offset en el amplificador operacional, que desplaza a la salida del circuito.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../EJ4/resources/difmode_med.png}
+	\caption{Ganancia en modo diferencial}
+   	\label{fig:EJ4_difmodegain}
+\end{figure}
+
+La ganancia en modo diferencial viene dada por la siguiente ecuaci\'on:
+
 \begin{equation}
- COMPLETAR ESTO!!!!!!!!!!!!!!!!!!!!!!
+	A_{diferencial} = \frac{v_o}{v_i}
 \end{equation}
+
+A continuaci\'on se reproduce una tabla con los valores de ganancia medidos para distintas tensiones de entrada.
+
+\begin{equation}
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+\end{equation}
+
+Por otro lado, tambi\'en puede ser medida la ganancia en modo com\'un. Esto se logra conectando ambas entradas del circuito a la misma fuente de tensi\'on. Idealmente, dada la ecuaci\'on de ganancia del circuito la ganancia en modo com\'un deber\'ia ser una atenuaci\'on infinita, debido a que la salida deber\'ia ser nula por anularse ambas tensiones de entrada.
+
+Como la condici\'on de puente mencionada anteriormente no se cumple con totalidad a causa de las tolerancias en los componentes, la parte com\'un de la se\~nal de entrada tendr\'a presencia en la se\~nal de salida, como se observa abajo:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../EJ4/resources/commode_med.png}
+	\caption{Ganancia en modo com\'un}
+   	\label{fig:EJ4_commodegain}
+\end{figure}
+
+Cabe resaltar que el circuito fue excitado con una se\~nal de iguales caracter\'isticas que en el caso de la ganancia en modo diferencial.
+
 
 
 %\begin{figure}[H]
