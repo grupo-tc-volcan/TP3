@@ -1,7 +1,27 @@
 \babel@toc {spanish}{}
 \contentsline {section}{\numberline {1}Ejercicio 1}{3}{section.1}% 
 \contentsline {section}{\numberline {2}Ejercicio 2}{4}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{5}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{6}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{7}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{8}{section.6}% 
+\contentsline {section}{\numberline {3}Amplificador de instrumentaci\'on}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Introducci\'on}{5}{subsection.3.1}% 
+\contentsline {paragraph}{Amplificador diferencial}{5}{section*.2}% 
+\contentsline {paragraph}{Amplificador de instrumentaci\'on}{5}{section*.3}% 
+\contentsline {subsection}{\numberline {3.2}An\'alisis te\'orico}{5}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}Asumiendo amplificadores operacionales ideales}{6}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Amplificadores operacionales no ideales }{7}{subsubsection.3.2.2}% 
+\contentsline {subsection}{\numberline {3.3}Dise\~no, simulaciones y mediciones}{7}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}Elecci\'on de componentes}{7}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Curvas obtenidas a partir an\'alisis te\'orico }{8}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}An\'alisis de tolerancias, asimentr\'as y variaciones}{9}{subsubsection.3.3.3}% 
+\contentsline {paragraph}{Variaciones de $R_5$:}{9}{section*.4}% 
+\contentsline {paragraph}{Tolerancias y asimetr\'ias de $R_3$, $R_4$, $R_6$ y $R_7$:}{9}{section*.5}% 
+\contentsline {paragraph}{Variaciones de $A_o$ y GBP}{10}{section*.6}% 
+\contentsline {subsubsection}{\numberline {3.3.4}Mediciones y comparaci\'on de resultados}{10}{subsubsection.3.3.4}% 
+\contentsline {subsection}{\numberline {3.4}Puente de Wheatstone}{11}{subsection.3.4}% 
+\contentsline {subsection}{\numberline {3.5}DC offset}{12}{subsection.3.5}% 
+\contentsline {subsubsection}{\numberline {3.5.1}An\'alsis te\'orico}{12}{subsubsection.3.5.1}% 
+\contentsline {subsubsection}{\numberline {3.5.2}Constrastaci\'on pr\'actica}{13}{subsubsection.3.5.2}% 
+\contentsline {subsubsection}{\numberline {3.5.3}Diferencias con la teor\'ia}{13}{subsubsection.3.5.3}% 
+\contentsline {subsection}{\numberline {3.6}Mediciones sin referencia a tierra}{14}{subsection.3.6}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{15}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{16}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{17}{section.6}% 
