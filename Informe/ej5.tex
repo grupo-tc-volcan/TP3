@@ -262,18 +262,98 @@ amplificación, a pesar de que la atenuación no sea simétrica con la amplifica
 sucesiva, efecto que es perjudicial al diseño, pero es de todas formas preferible por sobre los resultados obtenidos con la otra configuración.
 
 
+\subsubsection{Elección de operacional a utilizar}
+Para la determinación del amplificador operacional, se toma como referencia la lista de opamps indicados por Texas Instruments como adecuados para aplicaciones de audio
+\footnote{Operacionales para aplicaciones de audio según Texas Instruments: \\https://www.ti.com/amplifier-circuit/op-amps/audio/products.html\#p1typ=0.65;3\&sort=p1typ;asc}.
+De esta lista, se tiene disponibilidad únicamente del modelo LM833, el cual es consecuentemente elegido para la realización del diseño.\par
+Dado que este circuito integrado cuenta con dos operacionales, serán necesarios emplear dos para las tres bandas de ecualización solicitadas, sobrando el cuarto opamp.
+Este último se puede aprovechar para realizar un control de volumen a la salida del circuito, utilizándolo para una última etapa inversora, cuya ganancia quedará 
+determinada por un potenciómetro en la resistencia de feedback.
 
-\subsection{Resultados del diseño y comparación con simulaciones}
-\todo[inline]{Compare different bodes using different cominations of the potentiometers.}
-\todo[inline]{Compare poles and zeros results.}
 
+
+\subsection{Resultados del diseño y comparación}
+A fin de contrastar los resultados teóricos, simulados y prácticos, se seleccionan una serie de configuraciones de las resistencias variables que se consideran 
+características y representativas para el análisis. 
+Tales configuraciones son elegidas de forma tal que el circuito se encuentre en condiciones extremas, entendiendo que es en estas circunstancias que se observarán 
+más claramente las diferencias, en caso de existir las mismas. \par
+En primer lugar, se toma cada uno de los ecualizadores amplificando por su cuenta, mientras que los otros dos atenúan, buscando de esta manera, 
+estudiar la independencia de cada uno de los ecualizadores.
+Luego, se toma otra configuración en donde se analiza el cuarto caso considerado como extremo, que es aquel en el cual los ecualizadores de frecuencias bajas y altas 
+están amplificando mientras que se atenúan las frecuencias medias. \par
+A modo de criterio general, se consideró que los potenciómetros de los ecualizadores estaban con un 90\% de su resistencia en $R_2'$ para atenuar, y 90\% en $R_2''$ para 
+amplificar (ver Figura \ref{fig:Z123}).
+Asimismo, en todas las configuraciones la resistencia variable que determina el volumen a la salida se fijó también en un 90\%.
+Los resultados obtenidos son los que se muestran en las figuras a continuación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../EJ5/latex_resources/+B-M-A}
+    \caption{Comparación, teórico, simulado y experimental, con énfasis en bajos}
+    \label{fig:emphasis_in_low_ex}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../EJ5/latex_resources/-B+M-A}
+    \caption{Comparación, teórico, simulado y experimental, con énfasis en medias}
+    \label{fig:emphasis_in_mid_ex}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../EJ5/latex_resources/-B-M+A}
+    \caption{Comparación, teórico, simulado y experimental, con énfasis en altos}
+    \label{fig:emphasis_in_high_ex}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../EJ5/latex_resources/+B-M+A}
+    \caption{Comparación, teórico, simulado y experimental, con énfasis en altos y bajos}
+    \label{fig:emphasis_in_high_and_low_ex}
+\end{figure}
+
+Como primer conclusión, se observa, en general, una buena concordancia en la forma de los gráficos esperados, con respecto a aquellos obtenidos en la práctica, 
+es decir, la ganancia del circuito aumenta y disminuye conforme a lo esperado.
+Otro aspecto compartido por las tres curvas es la ubicación de las frecuencias de corte, las cuales se encuentran en márgenes muy cercanos a los valores calculados, 
+siendo este un resultado positivo para el diseño.
+La principal diferencia es la que se presenta en los valores máximos de amplificación y atenuación de frecuencias bajas, siendo esta la única desviación de los resultados 
+prácticos, respecto de los márgenes esperados desde la simulación.
+
+
+\subsubsection{Impedancia de salida}
+La impedancia de salida merece una sección aparte debido a los resultados que arrojaron sus mediciones y simulaciones.
+Como método para medir esta característica, se propone realizar dos mediciones de la tensión de salida para cada frecuencia, cada una con una resistencia de carga distinta, 
+y asumiendo linealidad, la diferencia entre los resultados daría idea de la impedancia de salida.
+Así es como, en primera instancia, se simulan estos escenarios, y se observa que el valor de la tensión de salida se ve modificado únicamente para valores de resistencias 
+de carga del orden de $10 \Omega$, para los cuales, en la práctica, la alta corriente que circule por la misma puede quemar al operacional o al mismo resistor.
+A modo de corroboración de lo simulado, se tomaron mediciones con valores de resistencias separadas por tres órdenes de magnitud, pero que no significaran ningún peligro 
+de quemar componentes. En la Figura \ref{fig:vout_for_diff_resistors_ex5}, se pueden apreciar los resultados de tales mediciones, así como la diferencia casi nula entre 
+las mismas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../EJ5/latex_resources/Zout}
+    \caption{Tensión a la salida del ecualizador para diferentes resistores.}
+    \label{fig:vout_for_diff_resistors_ex5}
+\end{figure}
+
+Se extrae como conclusión de lo observado, que si bien la impedancia de salida no puede ser específicado, se sabe por simulaciones que su valor es muy chico y del orden 
+de las decenas de ohms.\\
 
 
 \subsection{Hoja de datos del diseño}
-\todo[inline]{Pros of the design.}
-\todo[inline]{Cut frequencies, input and output impedances, power supply recommended and limits, range of usage.}
-\todo[inline]{Application circuit.}
+A continuación se presenta una hoja de datos correspondiente al diseño del ecualizador de 3 bandas.
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../EJ5/EQ_datasheet/EQ_datasheet.pdf}
 
 
 
 \subsection{Conclusión}
+Se concluye el informe sobre el diseño del ecualizador de 3 bandas considerando que los resultados fueron positivos.
+La aceptable concordancia entre el comportamiento esperado, y el encontrado en la práctica hacen de este circuito uno de implementación sencilla y confiable.
+La independencia entre las tres etapas es tal vez la característica donde menos destaca el diseño, a pesar de que esto ya era previsible desde los cálculos teóricos y las 
+simulaciones.
+Además, se observa una clara preponderancia del ecualizador de frecuencias bajas por sobre los restantes dos, lo cual es atribuido a que es este el único con el cual se 
+eligió utilizar un potenciómetro de $100K\Omega$ para satisfacer el parámetro de diseño de la frecuencia de corte.
+Finalmente, esto último puede ser visto como un problema o una ventaja, dependiendo de si la aplicación para la que se lo emplee pretende hacer énfasis en esas frecuencias.
