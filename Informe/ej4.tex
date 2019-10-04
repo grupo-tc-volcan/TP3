@@ -11,7 +11,7 @@ La se\~nal de entrada del circuito provendr\'a de un \textsc{mpx2010dp}. Este es
     \label{fig:EJ4_mpx2010dp_image}
 \end{figure}
 
-Como se puede observar en la imagen anterior el sensor posee dos entradas de fluido. Esto es as\'i dado que el mismo mide la presi\'on de una de las entradas, en relacion a la otra. Esto es precisamente \'util para medir la presi\'on manom\'etrica de un determinado fluido (esto es, su presi\'on en relaci\'on a la atm\'osfera. De esta forma, el sensor entrega una se\~nal de tensi\'on que ser\'a lineal y proporcional a esta diferencia de presi\'on. Esto se puede observar en la figura~\ref{fig:EJ4_mpx2010dp}.
+Como se puede observar en la imagen anterior el sensor posee dos entradas de fluido. Esto es as\'i dado que el mismo mide la presi\'on de una de las entradas, en relacion a la otra. Esto es precisamente \'util para medir la presi\'on manom\'etrica de un determinado fluido (esto es, su presi\'on en relaci\'on a la atm\'osfera. De esta forma, el sensor entrega una se\~nal de tensi\'on que ser\'a lineal y proporcional a esta diferencia de presi\'on. Esto se puede observar en la figura~\ref{fig:EJ4_mpx2010dp_image}.
 
 \begin{figure}[H]
     \centering
@@ -108,7 +108,7 @@ De esta forma, la ganancia tendr\'a una dependencia no lineal respecto de la res
 
 \subsection{Selecci\'on de componentes}
 
-Se deben seleccionar los componentes para obtener la ganancia deseada. De la datasheet del circuito se observa que el rango de tensiones de salida del sensor \textsc{mpx2010dp} va desde $0V$ a $25mV$. La salida del circuito debe ser de $0V$ a $3,3V$. Luego, la ganancia te\'orica del sistema debe valer $A = 66$. De la ecuaci\'on~\ref{EJ4_adjgain} se deduce la siguiente igualadad.
+Se deben seleccionar los componentes para obtener la ganancia deseada. De la datasheet del circuito se observa que el rango de tensiones de salida del sensor \textsc{mpx2010dp} va desde $0V$ a $25mV$. La salida del circuito debe ser de $0V$ a $3,3V$. Luego, la ganancia te\'orica del sistema debe valer $A = 132$. De la ecuaci\'on~\ref{EJ4_adjgain} se deduce la siguiente igualadad.
 
 
 \begin{equation}
@@ -122,7 +122,7 @@ Con la expresi\'on anterior, y fijando $R_2$ y $R_1$ a valores normalizados, se 
     \begin{tabular}{c c c c}
         $R_1 = R_4$ & $R_2 = R_3$ & $R_G$ & $Preset (R_G)$  \\
         \hline \\
-        $68 K\Omega$ & $82 K\Omega$ & $2.57 K\Omega$ & $5 K\Omega$ \\
+        $150 K\Omega$ & $150 K\Omega$ & $2.3 K\Omega$ & $5 K\Omega$ \\
         \hline
     \end{tabular}
 \end{table}
