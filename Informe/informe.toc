@@ -1,7 +1,7 @@
 \babel@toc {spanish}{}
-\contentsline {section}{\numberline {1}Filtro con GIC}{3}{section.1}% 
+\contentsline {section}{\numberline {1}Filtro High Pass Notch}{3}{section.1}% 
 \contentsline {subsection}{\numberline {1.1}Funci\'on transferencia del circuito}{3}{subsection.1.1}% 
-\contentsline {subsubsection}{\numberline {1.1.1}Caracter\'sticas del circuito a partir de la funci\'on transferencia}{3}{subsubsection.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1}Caracter\'sticas del circuito a partir de la funci\'on transferencia}{4}{subsubsection.1.1.1}% 
 \contentsline {subsection}{\numberline {1.2}An\'alisis de sensibilidades}{4}{subsection.1.2}% 
 \contentsline {subsection}{\numberline {1.3}Dise\~no del circuito - Selecci\'on de componentes}{5}{subsection.1.3}% 
 \contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
@@ -11,10 +11,10 @@
 \contentsline {subsection}{\numberline {1.8}''Notch Depth''}{10}{subsection.1.8}% 
 \contentsline {subsection}{\numberline {1.9}Impedancia de entrada}{11}{subsection.1.9}% 
 \contentsline {subsection}{\numberline {1.10}Impedancia de salida}{12}{subsection.1.10}% 
-\contentsline {subsection}{\numberline {1.11}Limitaci\IeC {\'o}n de tensi\'on de entrada}{12}{subsection.1.11}% 
-\contentsline {subsection}{\numberline {1.12}Conclusiones}{14}{subsection.1.12}% 
-\contentsline {section}{\numberline {2}Ejercicio 2}{15}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{16}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{17}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{18}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{19}{section.6}% 
+\contentsline {subsection}{\numberline {1.11}Limitaci\IeC {\'o}n de tensi\'on de entrada}{14}{subsection.1.11}% 
+\contentsline {subsection}{\numberline {1.12}Conclusiones}{16}{subsection.1.12}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{17}{section.2}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{18}{section.3}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{19}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{20}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{21}{section.6}% 

@@ -1,7 +1,7 @@
 
-\section{Filtro con GIC}
+\section{Filtro High Pass Notch}
 
-A continuaci\'on se estudia la implementaci\'on de un filtro mediante el circuito de la figura \ref{circ1}. Si bien una parte del circuito parecer\'ia ser un GIC, debido a la resistencia R8 no lo es.
+A continuaci\'on se estudia la implementaci\'on de un filtro mediante el circuito de la figura \ref{circ1}. Si bien una parte del circuito parecer\'ia ser un GIC, debido a la presencia de la resistencia R8 no lo es.
 
 \begin{figure}[H] %!ht
 	\centering
@@ -11,6 +11,7 @@ A continuaci\'on se estudia la implementaci\'on de un filtro mediante el circuit
 	\label{circ1}
 \end{figure}
 
+Los opamps empleados para este circuito son LM833\footnote{Hoja de datos del operacional LM833: https://html.alldatasheet.com/html-pdf/784648/TI1/LM833/52/1/LM833.html}. ya que tienen un slew rate alto ($7V/\mu s$) y un GBP de 16MHz, lo cual permitir\'ia operar correctamente hasta las frecuencias de MHz alcanzadas con los generadores de se\~nales de la facultad.
 
 \input{./EJ1_vovi.tex}
 \input{./EJ1_sensibilidades.tex}
@@ -25,4 +26,4 @@ A continuaci\'on se estudia la implementaci\'on de un filtro mediante el circuit
 
 
 \subsection{Conclusiones}
-
+Es importante remarcar de esta parte del trabajo pr\'actico, c\'omo los valores de los componentes afectan al comportamiento del circuito. Se pudo ver que variando la $R_8$ el circuito deja de funcionar como un high pass notch. Al variar $R_1$ o $R_3$ se desplaza hacia la derecha o horizontalmente el pico del notch. Hay ciertos componentes que por la sensibilidad que tiene el Q frente a ellos, son los elegidos en caso de querer variar dicho par\'ametro del circuito. Estos son algunos ejemplos sobre los an\'alisis ellos anteriormente. Si bien se podr\'ian haber elegido componentes para disminuir los efectos de las sensibilidades m\'as que en el caso implementado, no se hizo ya que las especificaciones de dise\~no solicitadas pr\'acticamente determinaban los valores de los componentes sin mucha libertad. Es decir, no siempre se podr\'a elegir lo mejor en cuanto a las sensibilidades ya que si se necesitan cumplir ciertos requerimientos, no ser\'ia correcto pasarlos por algo para mejorar otra cosa. Por \'ultimo, queda pendiente encontrar un buen m\'etodo que permita medir impedancia de salida de forma convincent.
