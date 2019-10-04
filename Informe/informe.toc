@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
 \contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_8$}{7}{subsection.1.5}% 
 \contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{8}{subsection.1.6}% 
-\contentsline {subsection}{\numberline {1.7}Transferencia del circuito}{9}{subsection.1.7}% 
+\contentsline {subsection}{\numberline {1.7}Medici\'on de la transferencia del circuito}{9}{subsection.1.7}% 
 \contentsline {subsection}{\numberline {1.8}''Notch Depth''}{10}{subsection.1.8}% 
 \contentsline {subsection}{\numberline {1.9}Impedancia de entrada}{11}{subsection.1.9}% 
 \contentsline {subsection}{\numberline {1.10}Impedancia de salida}{12}{subsection.1.10}% 
