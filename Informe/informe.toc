@@ -13,8 +13,8 @@
 \contentsline {subsection}{\numberline {1.10}Impedancia de salida}{12}{subsection.1.10}% 
 \contentsline {subsection}{\numberline {1.11}Limitaci\IeC {\'o}n de tensi\'on de entrada}{14}{subsection.1.11}% 
 \contentsline {subsection}{\numberline {1.12}Conclusiones}{16}{subsection.1.12}% 
-\contentsline {section}{\numberline {2}Ejercicio 2}{17}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{18}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{19}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{20}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{21}{section.6}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{18}{section.2}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{19}{section.3}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{20}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{21}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{22}{section.6}% 

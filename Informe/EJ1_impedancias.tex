@@ -19,6 +19,12 @@ a la tensi\'on entregada por el generador. Por eso se consider\'o \'optimo que l
 resistencia tenga un valor similar al calculado de forma te\'orica y en caso de no 
 conseguir el mismo valor, prefiri\'endose un valor mayor y no menor. 
 
+En la expresi\'on \ref{zinn} se presenta la impedancia de entrada del circuito luego de haber reemplazado por los valores de los componentes:
+\begin{equation}
+Zin(s) =  (R_7 // C_6 // R_8)+(R_5//R_6)=\frac{21,94 \cdot 10^8 s + 8,55 \cdot 10^13}{53,22 \cdot 10^5 s + 7,846 \cdot 10^7}
+\label{zinn}
+\end{equation}
+
 
 En los siguientes gr\'aficos se observa la impedancia de entrada medida y simulada con el m\'etodo de Montecarlo.
 \begin{figure}[H] %!ht
@@ -27,6 +33,15 @@ En los siguientes gr\'aficos se observa la impedancia de entrada medida y simula
 	\caption{Impedancia de entrada.}
 	\label{zin_mod}
 \end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/zinn.png}
+	\caption{Impedancia de entrada.}
+	\label{zin_fase}
+\end{figure}
+
+Se considera que hay algo mal en la fase de la impedancia de entrada.
 
 \subsection{Impedancia de salida}
 
