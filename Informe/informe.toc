@@ -6,16 +6,16 @@
 \contentsline {subsection}{\numberline {1.3}Dise\~no del circuito - Selecci\'on de componentes}{5}{subsection.1.3}% 
 \contentsline {subsection}{\numberline {1.4}Polos y ceros}{6}{subsection.1.4}% 
 \contentsline {subsection}{\numberline {1.5}Variaci\'on de la resistencia $R_8$}{7}{subsection.1.5}% 
-\contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{7}{subsection.1.6}% 
-\contentsline {subsection}{\numberline {1.7}Mediciones y resultados obtenidos}{8}{subsection.1.7}% 
-\contentsline {subsubsection}{\numberline {1.7.1}Transferencia del circuito}{8}{subsubsection.1.7.1}% 
-\contentsline {subsubsection}{\numberline {1.7.2}Impedancia de entrada}{9}{subsubsection.1.7.2}% 
-\contentsline {subsubsection}{\numberline {1.7.3}Impedancia de salida}{9}{subsubsection.1.7.3}% 
-\contentsline {subsection}{\numberline {1.8}Limitaci\IeC {\'o}n de tensi\'on de entrada}{9}{subsection.1.8}% 
-\contentsline {subsection}{\numberline {1.9}''Notch Depth''}{11}{subsection.1.9}% 
-\contentsline {subsection}{\numberline {1.10}Conclusiones}{12}{subsection.1.10}% 
-\contentsline {section}{\numberline {2}Ejercicio 2}{13}{section.2}% 
-\contentsline {section}{\numberline {3}Ejercicio 3}{14}{section.3}% 
-\contentsline {section}{\numberline {4}Ejercicio 4}{15}{section.4}% 
-\contentsline {section}{\numberline {5}Ejercicio 5}{16}{section.5}% 
-\contentsline {section}{\numberline {6}Ejercicio 6}{17}{section.6}% 
+\contentsline {subsection}{\numberline {1.6}Variaci\'on de la resistencia $R_6$}{8}{subsection.1.6}% 
+\contentsline {subsection}{\numberline {1.7}Mediciones y resultados obtenidos}{9}{subsection.1.7}% 
+\contentsline {subsubsection}{\numberline {1.7.1}Transferencia del circuito}{9}{subsubsection.1.7.1}% 
+\contentsline {subsubsection}{\numberline {1.7.2}Impedancia de entrada}{10}{subsubsection.1.7.2}% 
+\contentsline {subsubsection}{\numberline {1.7.3}Impedancia de salida}{10}{subsubsection.1.7.3}% 
+\contentsline {subsection}{\numberline {1.8}Limitaci\IeC {\'o}n de tensi\'on de entrada}{10}{subsection.1.8}% 
+\contentsline {subsection}{\numberline {1.9}''Notch Depth''}{12}{subsection.1.9}% 
+\contentsline {subsection}{\numberline {1.10}Conclusiones}{13}{subsection.1.10}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{14}{section.2}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{15}{section.3}% 
+\contentsline {section}{\numberline {4}Ejercicio 4}{16}{section.4}% 
+\contentsline {section}{\numberline {5}Ejercicio 5}{17}{section.5}% 
+\contentsline {section}{\numberline {6}Ejercicio 6}{18}{section.6}% 
