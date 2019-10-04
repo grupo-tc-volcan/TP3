@@ -147,6 +147,8 @@ R_z = \frac{\Delta V_{R_z}}{I_{max}} = 13,2 \Omega
 
 Normalizando el valor, se utiliza un resistor de valor $R_z = 13,2 \Omega$.
 
+Luego con la simulaci\'on del circuito se advirti\'o que el diodo zener se activaba a una tensi\'on de aproximadamente $3,5V$, hecho que tambi\'en pudo ser observado en la pr\'actica. Frente a esto se decici\'o emplear un zener cuya tensi\'on caracter\'istica valga $3V$.
+
 Cabe resaltar que otra opci\'on factible para limitar la salida del circuito es utilizar un amplificador operacional del tipo rail to rail, aliment\'andolo con una tensi\'on dentro del rango de tensi\'on de salida m\'axima. Esto fue desestimado en principio porque el circuito debe tener una sola alimentaci\'on, y se considrer\'o que el sensor de presi\'on requiere un valor m\'as alto para funcionar correctamente. Por otro lado, el integrado que contiene a los amplificadores con estas caracter\'isticas tiene un costo mayor.
 
 \subsection{Simulaci\'on del circuito}
@@ -206,7 +208,7 @@ Luego de armar el circuito, se procedi\'o a realizar mediciones sobre el mismo d
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../EJ4/resources/difmode_med.png}
-	\caption{Ganancia en modo diferencial}
+	\caption{Medici\'on de ganancia en modo diferencial}
    	\label{fig:EJ4_difmodegain}
 \end{figure}
 
@@ -218,9 +220,19 @@ La ganancia en modo diferencial viene dada por la siguiente ecuaci\'on:
 
 A continuaci\'on se reproduce una tabla con los valores de ganancia medidos para distintas tensiones de entrada.
 
-\begin{equation}
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-\end{equation}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c}
+        $v_{in} [mV]$ & $v_{out} [V]$ & $A_{diferencial}$ \\
+        \hline \\
+        $23$ & $3,01$ & $130,85$ \\
+        $24$ & $3,1$ & $129,6$ \\
+        $25$ & $3,18$ & $127,56$ \\
+        $26$ & $3,28$ & $126,19$ \\
+        $27$ & $3,37$ & $124,89$ \\
+        \hline
+    \end{tabular}
+\end{table}
 
 Por otro lado, tambi\'en puede ser medida la ganancia en modo com\'un. Esto se logra conectando ambas entradas del circuito a la misma fuente de tensi\'on. Idealmente, dada la ecuaci\'on de ganancia del circuito la ganancia en modo com\'un deber\'ia ser una atenuaci\'on infinita, debido a que la salida deber\'ia ser nula por anularse ambas tensiones de entrada.
 
@@ -229,12 +241,34 @@ Como la condici\'on de puente mencionada anteriormente no se cumple con totalida
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../EJ4/resources/commode_med.png}
-	\caption{Ganancia en modo com\'un}
+	\caption{Medici\'on de ganancia en modo com\'un}
    	\label{fig:EJ4_commodegain}
 \end{figure}
 
-Cabe resaltar que el circuito fue excitado con una se\~nal de iguales caracter\'isticas que en el caso de la ganancia en modo diferencial.
+Cabe destacar que el circuito fue excitado con una se\~nal de tipo senoidal, con un valor pico a pico de $2V$. La ganancia en modo com\'un se define como:
 
+\begin{equation}
+A_{comun] = \frac{v_o}{v_i} = \frac{35,2 mV}{2 V} \approx 0,0176
+\end{equation}
+
+Con estos dos valores de ganancia puede calcularse el CMRR (common mode rejection ratio). Este es un valor que indica el grado de rechazo al modo com\'un. Esto es, que tan atenuada se ve la se\~nal inyectada a ambas entradas por igual. En teor\'ia, dado que la ganancia en modo com/'un es infinita idealmente, el valor de CMRR ideal es también infinito, por lo que el amplificador rechazar\'a por completo el ruido, situaci\'on que no sucede en la pr\'actica. El CMRR se define como:
+
+\begin{equation}
+CMRR = 20 \cdot \log_{10} \frac{A_{diferencial}{A_{comun}
+\end{equation}
+
+Tomando $A_{diferencial}$ a $25mV$ (donde fue calibrado),
+
+\begin{equation}
+CMRR \approx 77,425
+\end{equation}
+
+Como se mencion\'o anteriormente, este valor de CMRR se degradar\'a conforme aumente la frecuencia de entrada debido a la configuraci\'on del circuito. Dado que el mismo trabaja en continua, esto no es considerable para esta aplicaci\'on puntual.
+
+\subsubsection*{Conexi\'on al sensor}
+
+Luego de realizar todas las mediciones pertinentes en el osciloscopio, se procedi\'o a conectar el sensor \textsc{MPX2010DP} al circuito.
+La respuesta del circuito ante este evento fue impredecible: el valor de tensi\'on a la salida del mismo reflejaba un valor cercano a $1V$, cuando la diferencia de presi\'on en ambos terminales del sensor era nula. Al ejercer presi\'on sobre una de las entradas del componente se observaba como la tensi\'on a la salida aumentaba, correspondi\'endose esta parte con lo predicho. Al realizar un an\'alisis m\'as profundo sobre el tema se lleg\'o a la conclusión de que lo que afecta en este caso es que el sensor posee ambas salidas con un piso de tensi\'on que corresponde a la mitad del valor de alimentaci\'on del mismo. Es decir, \frac{v_{cc}}{2}. Con la configuraci\'on de resistores planteada en el dise\~no una de las etapas no inversoras saturaba, produciendo efectos indeseables sobre la salida. Se cambiaron los resistores a un valor donde esto no suceda, pero no se llegaron a tomar las mediciones sobre la probeta de agua.
 
 
 %\begin{figure}[H]
