@@ -1,1 +1,526 @@
-\section{Ejercicio 1}
+
+\section{Ejercicio 1: Filtro High Pass Notch}
+
+\subsection{Introducci\'on}
+
+A continuaci\'on se estudia la implementaci\'on de un filtro mediante el circuito de la figura \ref{circ1}. Si bien una parte del circuito parecer\'ia ser un GIC, debido a la presencia de la resistencia R8 no lo es.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[scale=0.4]{../EJ1/circuito1.png}
+	%\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/circuito1.png}
+	\caption{Circuito empleado como filtro, involucrando una configuraci\'on similar a un GIC.}
+	\label{circ1}
+\end{figure}
+
+Los opamps empleados para este circuito son LM833\footnote{Hoja de datos del operacional LM833: https://html.alldatasheet.com/html-pdf/784648/TI1/LM833/52/1/LM833.html}. ya que tienen un slew rate alto ($7V/\mu s$) y un GBP de 16MHz, lo cual permitir\'ia operar correctamente hasta las frecuencias de MHz alcanzadas con los generadores de se\~nales del laboratorio de la facultad.
+
+\subsection{Funci\'on transferencia del circuito - An\'alisis te\'orico}
+Debido a la complejidad del circuito \ref{circ1}, se  calcul\'o $\frac{V_O}{V_I}$ considerando a los dos amplificadores operacionales como ideales. Esto implica que se haya considerado $A_{vol}$ infinito. Para este an\'alisis, mediante resoluci\'on por nodos, se parti\'o de las relaciones entre corrientes entranes y salientes a cada uno de los tres nodos indicados en el circuito con tensi\'on $V_1$:
+
+\begin{equation}
+\begin{cases}
+\frac{V_i - V_1}{(R_7 // \frac{1}{sC_6})} = \frac{V_1}{R_6} + \frac{V_1 - V_2}{R_1}\\ \\
+\frac{V_2 - V_1}{\frac{1}{sC_2}} = \frac{V_1 - V_O}{R_3}\\ \\
+\frac{V_O - V_1}{R_4} = \frac{V_1 - V_i}{R_8} + \frac{V_1}{R_5}
+\end{cases}
+\label{ecsbase}
+\end{equation}
+
+Operando algebraicamente, a partir de las ecuaciones \ref{ecsbase} se obtiene la funci\'on transferencia del circuito \ref{circ1}. Siendo $s = j\omega$, la misma se muestra a continuaci\'on:
+
+\begin{equation}
+H(s) = \frac{V_O}{V_I} = \frac{R_4 + R_5}{R_5} \cdot 
+\frac
+{ s^2
+	+\frac{R_4 R_6 R_8 + R_5 R_6 R_8 - R_4 R_5 R_7}{C_6 R_6 R_7 R_8 (R_4 + R_5)} \cdot s
+	+\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
+{s^2
+	+\frac{R_6 + R_7}{C_6 R_6 R_7} \cdot s
+	+\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}
+}
+\label{vovi}
+\end{equation}
+
+
+\subsubsection{Caracter\'sticas del circuito a partir de la funci\'on transferencia}
+
+Si bien observando la funci\'on transferencia se puede decir que se trata de un filtro de segundo orden, a continuaci\'on se analiza m\'as en detalle a qu\'e tipo de filtro corresponde.
+
+\paragraph*{Polos y ceros:}
+A partir del t\'ermino de grado cero del numerador y del denominador del cociente de polinomios de la expresi\'on de $H(s)$ (Ecuaci\'on \ref{vovi}) se puede obtener la expresi\'on de los polos y ceros del circuito, ya que simb\'olicamente dichos t\'erminos son $\left(\frac{s}{\omega_Z}\right)^2$ y $\left(\frac{s}{\omega_P}\right)^2$respectivamente. Por lo tanto,
+
+\begin{equation}
+\omega_Z = \sqrt{\frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 (R_4 + R_5)}}
+\label{ec_z}
+\end{equation}
+
+\begin{equation}
+\omega_P = \sqrt{\frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}}
+\label{ec_p}
+\end{equation}
+
+Observando las diferencias entre los numeradores de las expresiones \ref{ec_z} y \ref{ec_p} se puede ver que como $R_5 < R_5 + 5_8$, el numerador del $\omega_Z$ es menor que el de $\omega_P$. Analizando los denominadores de igual manera, se v\'e que el denominador de $\omega_Z$ es mayor al denominador de $\omega_P$ ya que $R_4 + R_5 > R_5$. Por lo tanto, $\omega_Z < \omega_P$. Esto indica que el circuito \ref{circ1} es un filtro $High-Pass$ $ Notch$.
+
+
+\paragraph*{Ganancia del circuito (G):}  La ganancia $G$ para el caso de un filtro $High-Pass$ $ Notch$ se obtiene como $\lim_{s\to\infty}H(s)$, estando $H(S)$ definida por la expresi\'on \ref{vovi} y as\'i es como resulta:
+\begin{equation}
+G = \lim_{s\to\infty}H(s) = 1 + \frac{R_4}{R_5} 
+\label{G}
+\end{equation}
+
+\paragraph*{Factor de calidad (Q):} El coeficinete que acompa\~na a "s" en el denominador de la expresi\'on \ref{vovi} es $\frac{\omega_P}{Q}$. Por lo tanto, a partir de dicho coeficiente y de la expresi'on \ref{ec_p} correspondiente al $\omega_P$, se obtiene que:
+
+\begin{equation}
+Q = \frac{R_{6} R_{7}}{R_{6} + R_{7}} \cdot \sqrt{\frac{C_{6} R_{4} \left(R_{5} + R_{8}\right)}{C_{2} R_{1} R_{3}R_{5} R_{8} }}
+\end{equation}
+
+
+\subsection{An\'alisis de sensibilidades}
+
+Para dicho an\'alisis se prosigui\'o mediante la ecuaci\'on \ref{sens}, siendo $X$ el valor de un componente e $Y$ el par\'ametro del circuito cuya sensibilidad respecto a $X$ se quiere calcular.
+
+\begin{equation}
+S^{Y}_{X}= \lim_{\Delta X \to \infty} \left(\frac{\Delta Y / Y}{\Delta X / X}\right) = \frac{X}{Y}\cdot\frac{dY}{dX}
+\label{sens}
+\end{equation}
+
+Los par\'ametros sobre los que se analiz\'o la sensibilidad de cada uno de los componentes son $\omega_Z$, $\omega_P$ y $Q$. Sus resultados fueron los siguientes:
+
+\subsubsection{Sensibilidades de $\omega_Z$ respecto a cada componente del circuito}
+\begin{equation}
+\begin{cases}
+S^{\omega_Z}_{R_4}= \frac{1}{2} \cdot \frac{R_{5}}{R_{4} + R_{5}}\\ \\
+S^{\omega_Z}_{R_5}= \frac{1}{2} \cdot \frac{R_{4}}{R_{4} + R_{5}}\\ \\
+S^{\omega_Z}_{C_2} = S^{\omega_Z}_{C_6}= S^{\omega_Z}_{R_1}=S^{\omega_Z}_{R_3}=S^{\omega_Z}_{R_8}    =- \frac{1}{2} 
+\end{cases}
+\end{equation}
+
+\subsubsection{Sensibilidades de $\omega_P$ respecto a cada componente del circuito}
+\begin{equation}
+\begin{cases}
+S^{\omega_P}_{R_5} =	-  \frac{1}{2} \cdot \frac{R_{8}}{R_{5} + R_{8}} \\ \\
+S^{\omega_P}_{R_8} =	-  \frac{1}{2} \cdot \frac{R_{5}}{R_{5} + R_{8}}\\ \\
+S^{\omega_P}_{C_2} = S^{\omega_P}_{C_6}= S^{\omega_P}_{R_1}=S^{\omega_P}_{R_3}=	-  \frac{1}{2}\\ \\
+S^{\omega_P}_{R_4} = \frac{1}{2}
+\end{cases}
+\end{equation}
+
+\subsubsection{Sensibilidades de $Q$ respecto a cada componente del circuito}
+\begin{equation}
+\begin{cases}
+S^{Q}_{R_6} = \frac{R_{7}}{R_{6} + R_{7}}\\ \\
+S^{Q}_{R_7} = \frac{R_{6}}{R_{6} + R_{7}}\\ \\
+S^{Q}_{R_5} = \frac{1}{2} \frac{(C_{2} R_{1} R_{3} R_{5} R_{8})^2 \left(C_{6} R_{4} R_{5} - 1\right)}{C_{6} R_{4} \left(R_{5} + R_{8}\right) \left(R_{6} + R_{7}\right)^{2}} \\ \\
+S^{Q}_{R_8} = \frac{1}{2} \frac{(C_{2} R_{1} R_{3} R_{5} R_{8})^2 \left(C_{6} R_{4} R_{8} - 1\right)}{C_{6} R_{4} \left(R_{5} + R_{8}\right) \left(R_{6} + R_{7}\right)^{2}} \\ \\
+S^{Q}_{C_6} = S^{Q}_{R_4} =\frac{1}{2} \\ \\
+S^{Q}_{C_2} = S^{Q}_{R_1} = S^{Q}_{R_3} =-\frac{1}{2}
+\end{cases}
+\end{equation}
+
+\subsubsection{Observaciones}
+A partir de las expresiones de las sensibilidades se puede decir que en caso de querer variar $\omega_Z$ lo conveniente es modificando $C_2$, $C_6$, $R_1$, $R_3$ o $R_8$ ya que tienen valores constantes. Al modificar el $\omega_Z$ , uno puede desplazar la frecuencia a la cual se encuentra el pico del Notch, ya que dicho pico se debe al Q grande del cero, y a la ubicaci\'on de dicho cero. Para el $\omega_P$ lo conveniente es variar $C_2$, $C_6$, $R_1$, $R_3$ o $R_4$. Y finalmente para el Q los mejores componentes de ajuste al valor deseado son $C_6$, $R_4$, $C_2$, $R_1$ o $R_3$. En m\'odulo todas presentan el mismo valor y al no depender de los valores de otros componentes, permiten hacer mejor un ajuste. 
+
+\subsection{Dise\~no del circuito}
+Para elegir los valores de cada uno de los componentes del circuito, se tuvieron en cuenta las sugerencias indicadas en el enunciado del trabajo pr\'actico.
+
+\begin{itemize}
+	\item $R_1 = R_3 = R_8 = R$
+	\item $R_6 = (1 + k^2) Q R$
+	\item $R_7 = (1 + \frac{1}{k^2})Q R$
+	\item $R_4 = \frac{2k^2}{1+k^2}R$
+	\item $R_5 = \frac{2k^2}{1-k^2}R$
+	\item $C_2 = C_6 = C$
+	\item $k = \frac{\omega_Z}{\omega_P} \leqslant 1 $
+\end{itemize}
+
+Reemplazando con los valores de las sugerencias previamente mencionadas, se reescribe la funci\'on transferencia de la ecuaci\'on \ref{vovi} para mayor simplicidad:
+
+\begin{equation}
+H(s) = \frac{2}{1+k^2} \cdot \frac{s^2 + \left( \frac{k}{RC}\right)^2}{s^2 + \frac{1}{RCQ} s + \left(\frac{1}{RC}\right)^2}
+\label{vovi_simple}
+\end{equation}
+
+\begin{equation}
+\frac{\omega_Z}{\omega_P} = k
+\end{equation}
+
+La siguiente tabla presenta las especificaciones consideradas para el dise\~no del circuito:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c c}%
+		\bfseries $\omega_P$ & Q & $|H(\infty)| (dB)$ \\ \hline
+		$13000 \frac{rad}{s}$ & $2$ & $4dB$\\
+		\hline
+	\end{tabular}
+	\caption{Especificaciones de dise\~no}
+	\label{especificaciones}
+\end{table}
+
+A partir de la ecuaci\'on \ref{vovi_simple} y considerando lo indicado en la tabla \ref{especificaciones}:
+
+\begin{equation}
+\omega_P = \frac{1}{RC} = 13000\frac{rad}{s}
+\label{dwp}
+\end{equation}
+
+
+\subsubsection{Selecci\'on de componentes}
+Eligiendo $C = 100nF$, el valor de R debe ser tal que cumpla con la ecuaci\'on \ref{dwp}. Entonces $R = \frac{1}{13000 * 100 *10^{-9}} \approx 769\Omega.$ Por lo tanto tomamos el valor comercial m\'as cercano: $750\Omega$. Esto produce un $\omega_P = 13333 \frac{rad}{s}$. A partir de estos $C$ y $R$ elegidos, a continuaci\'on se muestran los valores que deb\'ian conseguirse para el resto de los componentes con la finalidad de respetar las especificaciones presentadas en la tabla \ref{especificaciones}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c c c c}%
+		\bfseries  & Valor deseado & Valor obtenido& Componentes empleados \\ \hline
+		$R4$ & $309,62\Omega$  & $309,52\Omega$ & $390\Omega // 1,5k\Omega$\\
+		$R5$ & $527,3\Omega$  & $527,50\Omega$ & $1,2k\Omega // 1,2k\Omega$\\
+		$R6$ & $1,89k\Omega$  & $1,89\Omega$ & $3k\Omega // 5,1k\Omega$\\
+		$R7$ & $7,27k\Omega$  & $7,10k\Omega$ & $20k\Omega // 11k\Omega$\\
+		\hline
+	\end{tabular}
+	\caption{Especificaciones de dise\~no}
+	\label{especificaciones}
+\end{table}
+
+Es as\'i como se obtiene la funci\'on transferencia que se muestra a continuaci\'on:
+
+\begin{equation}
+H(s) = 1,59 \cdot \frac{s^2+73,52 \cdot 10^6}{1,26 s^2 + 6666,6 s + 177,78 \cdot 10^6}
+\label{vovi_val}
+\end{equation}
+
+
+\subsection{Polos y ceros}
+
+Anal\'iticamente se obtienen las siguientes expresiones para los polos y ceros del filtro:
+
+\begin{equation}
+s_{z1,z2} = - \frac{R_4  R_6  R_8+R_5  R_6  R_8 - R_4 R_5 R_7}{C_6 R_6 R_7 R_8 \cdot (R_4 + R_5)} \pm \sqrt{\left( \frac{R_4 R_6 R_8 + R_4 R_6 R_8 - R_4 R_5 R_7}{C_6 R_6 R_7 R_8 \cdot (R_4 + R_5)}\right)^2- 4 \cdot \frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8 \cdot (R_4 + R_5)}}
+\label{ceros}
+\end{equation}
+
+\begin{equation}
+s_{p1,p2} = - \frac{R_6 + R_7}{C_6 R_6 R_7} \pm \sqrt{\left( \frac{R_6 + R_7}{C_6 R_6 R_7}\right)^2 - 4 \cdot \frac{R_4(R_5+R_8)}{C_2 C_6 R_1 R_3 R_5 R_8}}
+\label{polos}
+\end{equation}
+
+
+A partir de las expresiones anteriores, al reemplazar con los valores de los componentes empleados, se obtiene el siguiente diagrama de polos y ceros del filtro high pass notch, con $Q\approx 2$:
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/singularidades.png}
+	\caption{Polos y ceros de la funci\'on transferencia del circuito.}
+	\label{c1vinmax}
+\end{figure}
+
+Los polos se encuentran claramente del lado izquierdo del eje $j\omega$, lo que indica estabilidad del circuito.
+
+
+\subsection{Importancia de ciertos componentes}
+\subsubsection{Variaci\'on de la resistencia $R_8$}
+
+\paragraph*{Influencia en la funci\'on transferencia:} A continuaci\'on se muestra la funci\'on transferencia del circuito, con $R_8\to 0$ y luego con $R_8\to \infty$. Para ambos casos se obtiene la expresi\'on en funci\'on del resto de los componentes del circuito y se agrega el resultado luego de reemplazar dichas expresiones con los valores de los componentes empleados (indicados en la tabla \ref{componentes}.
+
+\begin{equation}
+\lim_{R_8\to 0} H(s) = - \frac{R_4 + R_5}{R_5} \cdot 
+\left(\frac{C_2 C_6 R_1 R_3 R_5 R_7}{C_6 R_6 R_7(R_4 + R_5)+\frac{R_4 R_5}{C_2 C_6 R_1 R_3 (R_4+R_5)}}\right)s = - 9.63 \cdot 10^{-13} s
+\end{equation}
+
+\begin{equation}
+\lim_{R_8\to \infty} H(s) = \frac{R_4 + R_5}{R_5} \cdot \frac{s^2 + \frac{1}{C_6 R_7}s}{s^2 + \frac{R_6 + R_7}{C_6 R_6 R_7}\cdot s + \frac{R_4}{C_2 C_6 R_1 R_3 R_5}} = \frac{1.59 s^{2} + 4473.45}{s^{2} + 6699.83 s + 104,39 \cdot 10^6}
+\end{equation}
+
+Se pueden ver en el siguiente gr\'afico la funci\'on transferencia para estos dos casos.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/r88.png}
+	\caption{H(s) con $R_8 \to 0$ y $R_8 \to \infty$}
+	\label{r8}
+\end{figure}
+
+Mirando la ganancia en el gr\'afico \ref{r8}, es facil notar que el valor de la resistencia $R_8$ es fundamental para el filtro high pass notch, ya que cortocircuitandola o abriendo el circuito en su lugar, el comportamiento del circuito es completamente distinto.
+
+\subsubsection{Variaci\'on de la resistencia $R_6$}
+
+A continuaci\'on se muestra c\'omo cambian los polos y ceros al modificar la resistencia $R_6$ en la expresi\'on de la transferencia \ref{vovi}, dejando fijas las otras resistencias y los capacitores con los valores determinados para implementar el filtro.
+
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/r6.png}
+	\caption{Polos y ceros del circuito al variar $R_6$}
+	\label{r6}
+\end{figure}
+
+En la figura \ref{r6} se indica con flechas hacia donde tienden los polos y los ceros al hacer tender R6 a cero. Las flechas amarillas corresponden a la variaci\'on del polo $P1$ y del cero $Z1$ en dicho caso, mientras que las flechas verdes indican el comportamiento del polo $P2$ y del cero $Z2$. Para el caso en el que R6 tiende a infinito, las flechas van en sentido contrario al indicado en la figura. A continuaci\'on se muestran anal\'iticamente dichos comportamientos:
+
+\begin{equation}
+\lim_{R_6\to 0} s_{z1,z2} \approx \lim_{R_6\to 0}\left( \frac{R_4 R_5}{C_6 R_6 R_8} \pm \frac{R_4 R_5}{C_6 R_6 R_8}\right) \Rightarrow 
+\begin{cases} 
+s_{z1} \to +\infty\\
+s_{z2} \to 0
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\lim_{R_6\to 0} s_{p1,p2} \approx 	\lim_{R_6\to 0} \left( -\frac{R_6 + R_7}{C_6 R_6 R_7} \pm \frac{R_6 + R_7}{C_6 R_6 R_7} \right) \Rightarrow
+\begin{cases} 
+s_{p1} \to 0\\
+s_{p2} \to -\infty
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\lim_{R_6\to\infty}s_{z1,z2} =  -\frac{1}{C_6 R_7} \pm \sqrt{\left(\frac{1}{C_6 R_7} \right)^2 - 4 \cdot \frac{R_4 R_5}{C_2 C_6 R_1 R_3 R_8(R_4 + R_5)}}
+\end{equation}
+
+\begin{equation}
+\lim_{R_6\to\infty}s_{p1,p2} =  - \frac{1}{C_6 R_7} \pm \sqrt{\left(\frac{1}{C_6 R_7}\right)^2 - 4 \cdot \frac{R_4 (R_5 + R_8)}{C_2 C_6 R_1 R_3 R_5 R_8 }}
+\end{equation}
+
+
+
+\subsection{Medici\'on de la funci\'on transferencia}
+
+Aqu\'i se compara la funci\'on transferencia del circuito te\'orica, 
+medida y simulada mediante el m\'etodo de Montecarlo. Para la medici\'on se emple\'o el bodeador realizado para este trabajo. La simulaci\'on se llev\'o a cabo considerando tolerancias de $1\%$ para las resistencias ya que las empleadas fueron SMD y $10\%$ para los capacitores hole through. Adem\'as, se aclara que la simulaci\'on fue realizada incluyendo las impedancias equivalentes de $10M\Omega // 12pF$ aportadas por las puntas del osciloscopio que se usaron para tomar las mediciones.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vovi.png}
+	\caption{M\'odulo de la transferencia del circuito.}
+	\label{vovi_mod}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vovifase.jpg}
+	\caption{Fase de la transferencia del circuito.}
+	\label{vovi_fase}
+\end{figure}
+
+El gr\'afico del m\'odulo de la funci\'on transferencia, figura \ref{vovi_mod}, permite ver que los Q de la medici\'on fueron menores que aquellos de los c\'alculos te\'oricos. Si bien el Q del polo presenta una peque\~na respecto a la especificada te\'oricamente en el dise\~no del circuito, el Q del cero presenta un cambio notable. Te\'oricamente el mismo deb\'a ser infinito, pero en la implementaci\'on eso no ocurre. Sin embargo, la atenuaci\'on no deja de ser considerable.
+
+
+\subsection{ ''Notch Depth''}
+
+Se llama $notch$  $depht$ a la profundidad del pico del filtro notch. Esta profundidad es la m\'axima atenuaci\'on que presentar\'a la se\~nal de entrada.
+
+\subsubsection{C\'alculo anal\'itico} 
+Observando la funci\'on transferencia ideal del circuito, que se transcribe a continuaci\'on:
+
+\begin{equation}
+H(s) = \frac{2}{1+k^2} \cdot \frac{s^2 + \left( \frac{k}{RC}\right)^2}{s^2 + \frac{1}{RCQ} s + \left(\frac{1}{RC}\right)^2}
+\label{vovi_simple2}
+\end{equation}
+
+Se puede decir que dado que el Q del cero es $\infty$, el pico del notch deber\'a tener una atenuaci\'on infinita. Esto es para el caso ideal, el cual no se cumple al momento de medir. Para ver anal\'iticamente lo que ocurre con el pico del notch, se evalu\'o $H(s=j2\pi f)$ para obtener la funci\'on transferencia en funci\'on de la frecuencia en Hz. Luego se tom\'o su m\'odulo y se busc\'o su m\'inimo, obteniendo para este una frecuencia de $1,082kHz$. A esta frecuencia deber\'ia estar te\'oricamente el pico del notch.
+
+\subsubsection{Medici\'on} 
+Para medir la frecuencia y la atenuaci\'on del pico del notch, primero se intent\'o hacerlo con el bodeador. Al ir achicando el rango de frecuencias en la zona del pico y al exigirle al programa la obtenci\'on de m\'as puntos de medici\'on, se not\'o que la atenuaci\'on del pico iba variando, haciendose cada vez mayor. La atenuaci\'on m\'axima que se logr\'o obtener de esta forma fue de $\approx 30dB$. Este resultado se muestra en el gr\'afico \ref{pico}. En este gr\'afico se compara lo medido con lo te\'orico y con simulaci\'on Montecarlo, pero tambi\'en se contrasta con la simulaci\'on del valor exacto (ideal y deseado) de los componentes elegidos y teniendo en cuenta las puntas. Al estar analizando una zona de detalle, se compar\'o con la simulaci\'on reci\'en aclarada y no solo con el Montecarlo ya que el mismo presenta curvas muy exparsidas y pod\'ia ser relevante observar a qu\'e ser\'a mejor aproximarse y poder entender qu\'e tan lejos o cerca se logr\'o llegar de la frecuencia y de la atenuaci\'on del pico del notch.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/pico.png}
+	\caption{Detalle del pico del notch.}
+	\label{pico}
+\end{figure}
+
+Al percatarse de que pod\'ian no ser suficientes los puntos tomados en la zona del pico, luego, empleando el osciloscopio manualmente, se busc\'o la frecuencia para la cual la salida es m\'inima, obteniendo $1,097kHz$. Para dicho punto se obtuvo una atenuaci\'on de $\approx35dB$, la cual es menor que la predicha con los c\'alculos te\'oricos al no tratarse de un filtro notch ideal, pero con una atenuaci\'on de $5dB$ m\'as que la previamente obtenida con el bodeador. Por lo tanto, se verific\'o que en el proceso de medici\'on de la funci\'on transferencia este pico tambi\'en se lo vio con menor atenuaci\'on debido al m\'etodo de medici\'on.
+
+
+\subsection{Impedancias del circuito}
+
+\subsubsection{Impedancia de entrada}
+Para medir la impedancia de entrada del circuito en funci\'on de la frecuencia, 
+deb\'iamos hacer el cociente $V_{in}/I_{in}$. Si bien se puede medir la tensi\'on 
+de entrada al circuito de forma directa con el osciloscopio, 
+no es tan sensillo obtener la corriente que entra al circuito, ya que el osciloscopio 
+mide tensiones y no corrientes. Se busc\'o una resistencia $R_L$ cuyo valor comerical 
+fuera lo m\'as parecido posible (igual o el primero mayor) al valor obtenido en 
+el c\'alculo te\'rico para cada uno de los casos de resistencias. Se coloc\'o dicha 
+resistencia en serie al generador, a la entrada del circuito. Luego se midi\'o la ca\'ida 
+de tensi\'on sobre ella, ya que al dividirla por el valor de la $R_L$ colocada se obtendr\'ia 
+la corriente de entrada al circuito $I_{in}$. El criterio de buscar una resistencia similar 
+al valor calculado de $Z_{in}$ surge de que si se pusiese una resistencia muy chica, 
+la diferencia entre las tensiones medidas sobre sus bornes ser\'ia muy chica 
+(aumentando incertidumbre) y si se colocase una resistencia muy grande, 
+la tensi\'on que caer\'ia ser\'ia mucho mayor a la que caer\'ia en el circuito, 
+haciendo que la tensi\'on luego de la resistencia sea muy chica (se podr\'ia 
+acercar al nivel de ruido) y que la diferencia de tensi\'on entre sus bornes tienda 
+a la tensi\'on entregada por el generador. Por eso se consider\'o \'optimo que la 
+resistencia tenga un valor similar al calculado de forma te\'orica y en caso de no 
+conseguir el mismo valor, prefiri\'endose un valor mayor y no menor. 
+
+En la expresi\'on \ref{zinn} se presenta la impedancia de entrada del circuito luego de haber reemplazado por los valores de los componentes:
+\begin{equation}
+Zin(s) =  (R_7 // C_6 // R_8)+(R_5//R_6)=\frac{21,94 \cdot 10^8 s + 8,55 \cdot 10^13}{53,22 \cdot 10^5 s + 7,846 \cdot 10^7}
+\label{zinn}
+\end{equation}
+
+
+En los siguientes gr\'aficos se observa la impedancia de entrada medida y simulada con el m\'etodo de Montecarlo.
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/zin_modulo_sinTeorico.png}
+	\caption{Impedancia de entrada.}
+	\label{zin_mod}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/zinn.png}
+	\caption{Impedancia de entrada.}
+	\label{zin_fase}
+\end{figure}
+
+Se considera que hay algo mal en la fase de la impedancia de entrada.
+
+\subsubsection{Impedancia de salida}
+
+En esta parte se detallar\'a el m\'etodo empleado para medir la impedancia de salida, pero se anticipa al lector que no se considera que el mismo haya funcionado como se esperaba. 
+
+Al tener un circuito con componentes activos, desde un primer momento se descart\'o la opci\'on de medir la impedancia de salida pasivando la fuente de entrada y colocando una fuente a la salida para medirla como si esta fuera una impedancia de entrada vista desde la nueva fuente. Por esta raz\'on se prosigui\'o de la siguiente forma.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=8cm,height=8cm,keepaspectratio]{../EJ1/00GRAFICOS/zout.png}
+	\caption{Impedancia de entrada.}
+	\label{zout}
+\end{figure}
+
+El circuito de la figura \ref{zout} representa a nuestro circuito en el momento de medir. Se considera como circuito equivalente para el high pass notch a una fuente de tensi\'on $Vo$ en serie con la $Zo$ que se quiere medir. Primero se conecta a la salida del circuito una resistencia R1 y se mide la tensi\'on $V1$ sobre sus bornes. Luego se hace lo mismo con una resistencia R2, y se mide la tensi\'on sobre sus bornes, $V2$. Por divisor resistivo de tensi\'on:
+
+\begin{equation}
+\begin{cases}
+V_1 = \frac{Vo R_1}{Zo + R_1}\\
+V_2 = \frac{Vo R_2}{Zo + R_2}
+\end{cases}
+\label{v1v2}
+\end{equation}
+
+Considerando la misma $Vo$ para ambos casos, se dividen ambas expresiones de forma que se cancele dicha tensi\'on y se obtenga:
+
+\begin{equation}
+\frac{V_1}{V_2} = \frac{R_1}{Zo + R_1 } \cdot \frac{Zo + R_2}{R_2}
+\end{equation}
+
+Luego llamando $K = \frac{V_1}{V_2}\cdot \frac{R_2}{R_1} = \frac{Zo + R_2}{Zo + R_1}$, se obtiene:
+
+\begin{equation}
+\begin{cases}
+Zo = \frac{R_2 - R_1 \cdot K}{K - 1}\\
+K=\frac{V_1 R_2}{V_2 R_1}
+\end{cases}
+\label{zo}
+\end{equation}
+
+Para este m\'etodo, las resistencias empleadas a la salida deb\'ian ser, en nuestro caso, del orden de los $k\Omega$, para evitar que se rompiera la realimentaci\'on del opamp de salida, debido a la corriente. Se usaron resistencias de $33k\Omega$, $2k7\Omega$ y $10k\Omega$ con la finalidad de chequear el valor luego obtenido de la Zo a partir de m\'as de un par de resistencias, para disminuir la posibilidad de error.
+Previamente se simularon las tensiones de salida con las mismas resistencias y considerando las puntas del osciloscopio y se observ\'o que daban igual. Esto implicar\'ia que al momento de medir no podr\'ia haber mucha diferencia de tensi\'on a la salida y dificultar\'ia el m\'etodo. Y as\'i fue. Se obtuvo una diferencia de tensi\'on de salida entre los distintos casos del orden de los $mV$, de forma que para calcular la Zo esa diferencia de tensi\'on estar\'ia en el nivel del piso de ruido. Realizar operaciones matem\'aticas sobre esta diferencia de tensi\'on tan chica, no ser\'ia un m\'etodo confiable.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/zom.png}
+	\caption{"Impedancia de salida" medida.}
+	\label{zom}
+\end{figure}
+
+Algo interesante que se observa en el gr\'afico \ref{zom} es que hay un pico en su amplitud en la zona de frecuencias donde se encuentra el pico del filtro Notch. Sin embargo, no podemos afirmar que est\'e bien o mal lo obtenido. El gr\'afico fue logrado mediante c\'alculos con n\'umeros complejos para poder obtener Zo, pero las simulaciones, al haber sido tambi\'en sobre las tensiones medidas, requerir\'ian pasar por los mismos c\'alculos, lo cual impide que de forma r\'apida se sepa si est\'a bien lo obtenido (m\'as all\'a de la limitaci'on previamente mencionada sobre la gran probabilidad de tener error en el resultado al tener una diferencia de tensi\'on en el orden del piso de ruido).
+
+
+
+\subsection{Limitación de tensi\'on de entrada}
+
+La tensión de entrada máxima del circuito está limitada principalmente por el slew rate y la saturaci\'on. 
+
+\subsubsection{Influenccia del slew rate en $V_{in_{max}}$}
+
+Partiendo de:
+\begin{equation}
+\begin{cases}
+SR = m\'ax\bigg\{\frac{ dV_{out}}{dt}\bigg\} \\
+V_{in} (f, t) = V_{in_{max}} \cdot sin(2\pi f t) \\
+V_{out} (f, t) = \rvert H(f)\rvert \cdot V_{in_{max}} \cdot sin(2 \pi f t)
+\end{cases}
+\label{srecs}
+\end{equation}
+
+Siendo $SR$ el slew rate, $V_{in}$ y $V_{out}$ las se\~nales de entrada y de salida respectivamente y $\rvert H(f)\rvert = V_{out}/V_{in}$ la ganancia del circuito.
+
+
+\begin{equation}
+\frac{dV_{out}}{dt} = \rvert H(f)\rvert V_{in_{max}} 2 \pi f cos(2 \pi f t)
+\label{deriv}
+\end{equation}
+
+Maximizando la ecuaci\'on \ref{deriv} se obtiene que:
+
+\begin{equation}
+SR = m\'ax\bigg\{\frac{dV_{out}}{dt}\bigg\} = \rvert H(f)\rvert 2 \pi f V_{in_{max}} 
+\label{max}
+\end{equation}
+
+Despejando de la ecuaci\'on \ref{max}:
+
+\begin{equation}
+V_{in_{max}}  = \frac{SR}{\rvert H(f)\rvert 2\pi f}
+\label{vinmax}
+\end{equation}
+
+El valor de SR, para el c\'alculo te\'orico, fue sacado de hojas de datos del amplificador operacional LM833 de Texas Instrument\footnote{Hoja de datos del operacional LM833: https://html.alldatasheet.com/html-pdf/784648/TI1/LM833/52/1/LM833.html}. 
+Se encontr\'o que $SR = 7 \frac{V}{\mu s}$. Reemplazando con este valor en la expresi\'on \ref{vin_max}, se obtiene que la tensi\'on de entrada m\'axima limitada por el slew rate es:
+
+\begin{equation}
+V_{in_{max}}  = \frac{\left(17,36 \cdot 10^8 f^{4} - 1.37 \cdot 10^{16} f^{2} + 3.52 \cdot 10^{22}\right)}{f \sqrt{61,19 \cdot 10^5 f^{8} - 62,49 \cdot 10^{12} f^{6} + 2.45 \cdot 10^{20} f^{4} - 3.57 \cdot 10^{26} f^{2} + 1.70 \cdot 10^{32}}}		
+\label{vin_max}
+\end{equation}
+
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxsr.png}
+	\caption{Tensi\'on de entrada m\'axima limitada por slew rate.}
+	\label{vinmaxsr}
+\end{figure}
+
+\subsubsection{Influenccia de la saturaci\'on en $V_{in_{max}}$}
+La tensi\'on pico a pico m\'axima de salida del amplificador operacional es llamada 
+tensi\'on de saturasi\'on $V_{sat}$. Te\'oricamente, este valor es igual a $V_{CC}$. Dado que $V_{out} = \rvert H(s) \rvert V_{in}$:
+
+\begin{equation}
+V_{in_{max}} = \frac{V_{out_{max}}}{\rvert H(s) \rvert} = \frac{V_{sat}}{\rvert H(s) \rvert} = \frac{V_{CC}}{\rvert H(s) \rvert}
+\end{equation}
+
+Dado que en nuestro caso usamos $V_{CC} = \pm15V$, la expresi\'on que se obtiene es:
+
+\begin{equation}
+V_{in_{max}} = \frac{15V}{\rvert H(s) \rvert} 
+\end{equation}
+
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxsat.png}
+	\caption{Tensi\'on m\'axima de entrada limitada por saturaci\'on.}
+	\label{vinmaxsat}
+\end{figure}
+
+\subsubsection{Combinaci\'on del efecto de slew rate y saturaci\'on sobre la tensi\'on m\'axima de entrada}
+
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/vinmaxtotal.png}
+	\caption{Tensi\'on m\'axima de entrada limitada por slew rate y saturaci\'on.}
+	\label{vinmaxtotal}
+\end{figure}
+
+En el gr\'afico \ref{vinmaxtotal} se puede ver que la forma que presenta la curva correspondiente a la tensi\'on de entrada m\'axima al circuito respecto a la frecuencia, es inversa a aquella de la funci\'on transferencia. Esto se debe a que al tratarse de un high pass notch, donde hay ganancia de tensi\'on, disminuye la tensi\'on m\'axima de entrada ya que la misma puede saturar al superar la tensi\'on de Vcc. Cerca de la frecuencia del pico del notch, al haber mucha atenuaci\'on, la tensi\'on m\'axima de entrada aumenta enormemente ya que igual ser\'a atenuada al ingresar al ciruito.
+
+
+
+\subsection{Conclusiones}
+Es importante remarcar de esta parte del trabajo pr\'actico, c\'omo los valores de los componentes afectan al comportamiento del circuito. Se pudo ver que variando la $R_8$ el circuito deja de funcionar como un high pass notch. Al variar $R_1$ o $R_3$ se desplaza hacia la derecha o horizontalmente el pico del notch. Hay ciertos componentes que por la sensibilidad que tiene el Q frente a ellos, son los elegidos en caso de querer variar dicho par\'ametro del circuito. Estos son algunos ejemplos sobre los an\'alisis ellos anteriormente. Si bien se podr\'ian haber elegido componentes para disminuir los efectos de las sensibilidades m\'as que en el caso implementado, no se hizo ya que las especificaciones de dise\~no solicitadas pr\'acticamente determinaban los valores de los componentes sin mucha libertad. Es decir, no siempre se podr\'a elegir lo mejor en cuanto a las sensibilidades ya que si se necesitan cumplir ciertos requerimientos, no ser\'ia correcto pasarlos por algo para mejorar otra cosa. Por \'ultimo, queda pendiente encontrar un buen m\'etodo que permita medir impedancia de salida de forma convincent.
